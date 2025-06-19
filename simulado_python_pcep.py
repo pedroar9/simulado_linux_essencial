@@ -1897,6 +1897,7 @@ if "questions_to_ask" not in st.session_state:
     initialize_quiz_session()
 
 # --- Interface principal ---
+
 if not st.session_state.quiz_started:
     st.markdown("""
         <div style="display: flex; align-items: center; gap: 12px;">
@@ -1905,6 +1906,7 @@ if not st.session_state.quiz_started:
             <img src="https://pythoninstitute.org/assets/61f11fac8e6f4153315957.png" alt="PCEP Logo" width="50"/>
         </div>
     """, unsafe_allow_html=True)
+
 
     st.markdown("""
 ### 👨‍💻 Sobre a Certificação PCEP:
@@ -1922,6 +1924,8 @@ Este simulado é baseado na prova oficial **PCEP30-0x – Certified Entry-Level 
 🧠 Utilize este simulado para testar seus conhecimentos e se preparar para a certificação real!
 
 """)
+    
+    
 
     if st.button("🚀 Iniciar Simulado"):
         st.session_state.quiz_started = True
@@ -2024,3 +2028,43 @@ else:
                     st.rerun()
 
 display_timer_and_handle_timeout()
+
+st.markdown(
+    """
+    <style>
+    .rodape-container {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
+    }
+    .rodape {
+        text-align: center;
+        font-size: 0.8em;
+        padding: 10px 0;
+        width: 100%;
+        background-color: #ffffff;
+        color: #333333;
+    }
+    body.st-dark .rodape {
+        background-color: #0e1117;
+        color: #abb2bf;
+    }
+    .rodape a {
+        color: #1f77b4;
+        text-decoration: none;
+    }
+    body.st-dark .rodape a {
+        color: #61dafb;
+    }
+    </style>
+    <div class="rodape-container">
+        <div class="rodape">
+            📅 Versão: 1.0 de 19-06-2025 — Desenvolvido por Pedro Assis |
+            <a href="https://www.linkedin.com/in/pedrocarlos-assis">Contato</a>
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
