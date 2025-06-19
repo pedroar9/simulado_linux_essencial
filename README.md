@@ -8,7 +8,7 @@ Para configurar o ambiente de desenvolvimento, siga os passos abaixo:
 
 1.  **Clone o repositório (se aplicável):**
     ```bash
-    git clone <url_do_repositorio>
+    git clone https://github.com/pedroar9/simulado_python_pcep.git
     cd simulado_python_pcep
     ```
 
