@@ -33,7 +33,11 @@ Para configurar o ambiente de desenvolvimento, siga os passos abaixo:
     ```
 
 ## Como Usar
-    ```bash
+
+Para executar o simulado, siga os passos abaixo:
+
+1. **Execute o comando abaixo no terminal**  
+    ```bash 
     streamlit run simulado_python_pcep.py
     ```
 
