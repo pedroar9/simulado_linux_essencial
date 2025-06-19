@@ -1556,6 +1556,61 @@ text_color = "#333333"
 # --- CSS customizado para o tema azul ---
 custom_css = f"""
 <style>
+    section.main h1, .block-container h1 {{
+        font-size: 2.5em;
+    }}
+    section.main h2, .block-container h2 {{
+        font-size: 2em;
+    }}
+
+    section.main h3, .block-container h3 {{
+        font-size: 1em;
+    }}
+
+    /* Rodapé desktop */
+        .rodape .linha {{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }}
+
+        .rodape .links {{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }}
+
+    /* Responsividade geral */
+    @media (max-width: 768px) {{
+        section.main h1, .block-container h1 {{
+            font-size: 1.5em !important;
+        }}
+        .main h2 {{
+            font-size: 1.4em !important;
+        }}
+        .main h3 {{
+            font-size: 1.2em !important;
+        }}
+        .rodape .links {{
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            align-items: center;
+        }}
+        .rodape .linha {{
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            align-items: center;
+        }}
+        .rodape .links a {{
+            display: inline-block;
+        }}
+    }}
+
+
     .stButton>button {{
         background-color: {primary_color};
         color: white;
@@ -1713,6 +1768,7 @@ body.light .stRadio > label p {{
     .quiz-question-text pre .n, .explanation-box pre .n {{ /* Removed 'code' from selector */
         color: #abb2bf !important;
     }}
+
 </style>
 """
 
@@ -1901,7 +1957,7 @@ if "questions_to_ask" not in st.session_state:
 if not st.session_state.quiz_started:
     st.markdown("""
         <div style="display: flex; align-items: center; gap: 12px;">
-            <img src="https://images.seeklogo.com/logo-png/33/1/python-logo-png_seeklogo-332789.png" alt="Python Logo" width="65"/>
+            <img src="https://static.cdnlogo.com/logos/p/83/python.svg" alt="Python Logo" width="65"/>
             <h1 style="margin: 0;">Simulado Interativo da certificação em Python - PCEP</h1>
             <img src="https://pythoninstitute.org/assets/61f11fac8e6f4153315957.png" alt="PCEP Logo" width="50"/>
         </div>
@@ -2032,89 +2088,82 @@ display_timer_and_handle_timeout()
 st.markdown(
     """
     <style>
-    .rodape-container {
+    .rodape-container {{
         position: fixed;
         bottom: 0;
         left: 0;
         width: 100%;
         z-index: 9999;
-    }
-    .rodape {
+        background-color: #ffffff;
+    }}
+    .rodape {{
+        margin: 0 auto;
+        max-width: 900px;
         text-align: center;
         font-size: 0.8em;
-        padding: 10px 0;
-        width: 100%;
-        background-color: #ffffff;
+        padding: 10px 1.5rem;
         color: #333333;
-    }
-    body.st-dark .rodape {
+        box-sizing: border-box;
+    }}
+    body.st-dark .rodape-container {{
         background-color: #0e1117;
+    }}
+
+    body.st-dark .rodape {{
         color: #abb2bf;
-    }
-    .rodape a {
-        color: #1f77b4;
+    }}
+
+    .rodape .linha {{
+        margin: 5px 0;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }}
+
+    .rodape .links {{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 5px;
+    }}
+
+    .rodape .links a {{
         text-decoration: none;
-    }
-    body.st-dark .rodape a {
-        color: #61dafb;
-    }
-    </style>
-    <div class="rodape-container">
-        <div class="rodape">
-            📅 Versão: 1.0 de 19-06-2025 — Desenvolvido por Pedro Assis |
-            <a href="https://www.linkedin.com/in/pedrocarlos-assis">Contato</a>
-        </div>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+        transition: transform 0.3s ease;
+    }}
 
-st.markdown(
-    """
-    <style>
-    .rodape-container {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        z-index: 9999;
-    }
-    .rodape {
-        text-align: center;
-        font-size: 0.8em;
-        padding: 10px 0;
-        width: 100%;
-        background-color: #ffffff;
-        color: #333333;
-    }
-    body.st-dark .rodape {
-        background-color: #0e1117;
-        color: #abb2bf;
-    }
+    .rodape .links a:hover {{
+        transform: scale(1.1);
+    }}
 
-    .rodape a {
-        margin: 0 10px;
-        color: #1f77b4;
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
-    .rodape a:hover {
-        color: #ff4b4b;
-    }
-
-    body.st-dark .rodape a {
-        color: #61dafb;
-    }
-    body.st-dark .rodape a:hover {
-        color: #ff4b4b;
-    }
+    @media (max-width: 768px) {{
+        .rodape {{
+            font-size: 0.75em;
+            padding-bottom: 60px;
+            align-items: center;
+            display: inline-flex;
+            justify-content: center;
+        }}
+        .rodape .links {{
+            flex-direction: column;
+        }}
+    }}
     </style>
 
     <div class="rodape-container">
-        <div class="rodape">
-            📅 Versão: 1.0 de 19-06-2025 — Desenvolvido por <a href="https://github.com/pedroar9/" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" target="_blank"></a> |
-            <a href="https://www.linkedin.com/in/pedrocarlos-assis/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
-        </div>
+      <div class="rodape">
+          <div class="linha">📅 Versão: 1.0 de 19-06-2025</div>
+          <div class="linha">Desenvolvido por:</div>
+          <div class="links">
+              <a href="https://github.com/pedroar9/" target="_blank">
+                  <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
+              </a>
+              <a href="https://www.linkedin.com/in/pedrocarlos-assis/" target="_blank">
+                  <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">
+              </a>
+          </div>
+      </div>
     </div>
     """,
     unsafe_allow_html=True
