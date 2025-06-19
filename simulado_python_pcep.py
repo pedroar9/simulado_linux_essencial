@@ -1,6 +1,7 @@
 import streamlit as st
 import random
 import time
+import re
 
 
 # --- Questions Data ---
@@ -1739,8 +1740,6 @@ def initialize_quiz_session():
     st.session_state.quiz_completed = False
     st.session_state.quiz_start_time = 0.0
     st.session_state.time_up = False
-
-import re
 
 def display_question(question_data, current_idx, total_questions):
     # Título geral do simulado

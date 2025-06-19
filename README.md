@@ -1,4 +1,11 @@
-# Simulado Python PCEP
+<img src="https://img.shields.io/badge/Python-4584b6?style=for-the-badge&logo=python&logoColor=FFDE57"/>
+<img src="https://img.shields.io/badge/Streamlit-%23FE4B4B.svg?style=for-the-badge&logo=streamlit&logoColor=white"/>  
+<img src="https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white"/>  
+<img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white"/>
+<img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white"/>
+
+
+# 🐍 Simulado Interativo da certificação em Python - PCEP
 
 Este projeto é um simulado para auxiliar nos estudos para a certificação PCEP (Python Certified Entry-Level Programmer).
 
