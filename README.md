@@ -7,7 +7,25 @@
 
 # 🐍 Simulado Interativo da certificação em Python - PCEP
 
-Este projeto é um simulado para auxiliar nos estudos para a certificação PCEP (Python Certified Entry-Level Programmer).
+Este projeto é um **simulado interativo** para auxiliar nos estudos para a certificação **PCEP™ – Certified Entry-Level Python Programmer**.
+
+A aplicação foi desenvolvida utilizando:
+
+- 🐍 **Python** como linguagem principal
+- 📄 **Markdown** para estrutura textual
+- 🎨 **HTML5 + CSS3** para estilização embutida
+- 💻 **Streamlit** como framework web de interface interativa
+
+---
+
+## 💻 Sobre o Streamlit
+
+[Streamlit](https://streamlit.io/) é um framework open-source em Python que permite criar aplicações web interativas de forma rápida e intuitiva — **sem a necessidade de lidar com HTML/JS diretamente**.  
+Ideal para dashboards, simulações, análises de dados e visualizações simples.
+
+---
+
+
 
 ## Configuração do Ambiente
 

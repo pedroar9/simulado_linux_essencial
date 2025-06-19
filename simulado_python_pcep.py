@@ -2068,3 +2068,54 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
+st.markdown(
+    """
+    <style>
+    .rodape-container {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
+    }
+    .rodape {
+        text-align: center;
+        font-size: 0.8em;
+        padding: 10px 0;
+        width: 100%;
+        background-color: #ffffff;
+        color: #333333;
+    }
+    body.st-dark .rodape {
+        background-color: #0e1117;
+        color: #abb2bf;
+    }
+
+    .rodape a {
+        margin: 0 10px;
+        color: #1f77b4;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    .rodape a:hover {
+        color: #ff4b4b;
+    }
+
+    body.st-dark .rodape a {
+        color: #61dafb;
+    }
+    body.st-dark .rodape a:hover {
+        color: #ff4b4b;
+    }
+    </style>
+
+    <div class="rodape-container">
+        <div class="rodape">
+            📅 Versão: 1.0 de 19-06-2025 — Desenvolvido por <a href="https://github.com/pedroar9/" target="_blank"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" target="_blank"></a> |
+            <a href="https://www.linkedin.com/in/pedrocarlos-assis/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
