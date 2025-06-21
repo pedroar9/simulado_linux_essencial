@@ -1573,12 +1573,27 @@ custom_css = f"""
     .stButton>button {{
         background-color: {primary_color};
         color: white;
-        border-radius: 5px;
+        border-radius: 10px; /* Aumentado para um look mais rebuscado */
         border: none;
-        padding: 10px 20px;
+        padding: 12px 24px; /* Padding maior para destaque */
         font-weight: bold;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+        transition: all 0.3s ease; /* Transição suave */
+        font-size: 1em;
     }}
-    .stButton>button[kind="secondary"], .stButton>button[kind="secondary"]:focus {{
+
+    .stButton>button:hover {{
+        background-color: {secondary_color};
+        transform: translateY(-2px); /* Efeito de elevação */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }}
+    .stButton>button:active {{
+        transform: translateY(0);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }}
+
+    .stButton>button[kind="secondary"], 
+    .stButton>button[kind="secondary"]:focus {{
         background-color: #D3D3D3;
         color: #333333;
     }}
@@ -1586,6 +1601,29 @@ custom_css = f"""
         background-color: #BEBEBE;
         color: #333333;
     }}
+
+    /* Tema Dark */
+    .st-emotion-cache-13k62yr .stButton>button,
+    body[color-scheme="dark"] .stButton>button {{
+        background-color: #4A90E2; /* Tom mais escuro de azul para contraste */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }}
+    .st-emotion-cache-13k62yr .stButton>button:hover,
+    body[color-scheme="dark"] .stButton>button:hover {{
+        background-color: #63A4FF;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    }}
+    .st-emotion-cache-13k62yr .stButton>button[kind="secondary"],
+    body[color-scheme="dark"] .stButton>button[kind="secondary"]:focus {{
+        background-color: #555555;
+        color: #E0E0E0;
+    }}
+    .st-emotion-cache-13k62yr .stButton>button[kind="secondary"]:hover,
+    body[color-scheme="dark"] .stButton>button[kind="secondary"]:hover {{
+        background-color: #6E6E6E;
+        color: #E0E0E0;
+    }}
+
     .stButton {{
         margin-top: 0.5rem !important;
         margin-bottom: 0.5rem !important;
@@ -1738,12 +1776,12 @@ custom_css = f"""
         margin-top: 2rem;
         padding: 0;
         background-color: #ffffff;
-        border-top: 1px solid #e0e0e0;
+        border: 1px solid #e0e0e0;
     }}
     body[data-theme="dark"] .rodape-container,
     body.st-dark .rodape-container {{
         background-color: #1a1c23 !important;
-        border-top: 1px solid #33353b !important;
+        border: 1px solid #33353b !important;
     }}
 
     /* Forçar herança do tema dark do contêiner pai */
@@ -1753,7 +1791,7 @@ custom_css = f"""
     body.dark .rodape-container,
     body.st-dark .rodape-container {{
         background-color: #1a1c23 !important;
-        border-top: 1px solid #33353b !important;
+        border: 1px solid #33353b !important;
     }}
     .st-emotion-cache-13k62yr .rodape-container *,
     body[color-scheme="dark"] .rodape-container *,
@@ -1963,7 +2001,7 @@ def show_results_page():
     if pct >= PASSING_PERCENTAGE:
         st.header("🎉 Simulado Concluído! 🎉")
     else:
-        st.header("👎 Simulado Concluído! 👎")
+        st.header("👎🏾 Simulado Concluído! 👎🏾")
 
     if st.session_state.get("time_up", False):
         st.warning("⏰ Seu tempo para o quiz esgotou!")
@@ -2158,7 +2196,7 @@ st.markdown(
     f"""
     <div class="rodape-container">
       <div class="rodape">
-          <div class="linha"> 👨‍💻 <b>Desenvolvido por:</b></div>
+          <div class="linha"> 👨🏾‍💻 <b>Desenvolvido por:</b></div>
           <div class="links">
               <a href="https://github.com/pedroar9/" target="_blank">
                   <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
@@ -2168,7 +2206,7 @@ st.markdown(
               </a>         
           </div>  
           <div class="linha"> <br> </div>
-          <div class="linha">⚙️ <b>Versão:</b> 2.2.0</div> 
+          <div class="linha">⚙️ <b>Versão:</b> 2.3.0</div> 
           <div class="linha">🗓️ <b>Build:</b> {hoje}</div>        
       </div>
     </div>
