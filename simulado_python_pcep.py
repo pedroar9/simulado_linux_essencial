@@ -1631,23 +1631,23 @@ custom_css = f"""
     font-size: 1.05em !important;
     }}
 
-/* Tema escuro: cor clara */
-body[data-theme="dark"] .stRadio > label p,
-body.dark .stRadio > label p {{
-    color: #FAFAFA !important;
-    }}
+  /* Tema escuro: cor clara */
+  body[data-theme="dark"] .stRadio > label p,
+  body.dark .stRadio > label p {{
+      color: #FAFAFA !important;
+      }}
 
-/* Tema claro: cor escura */
-body[data-theme="light"] .stRadio > label p,
-body.light .stRadio > label p {{
-    color: #333333 !important;
-    }}
-    .quiz-question-text {{
-        font-size: 1.2em;
-        color: inherit;
-        margin-bottom: 15px;
-        line-height: 1.6;
-    }}
+  /* Tema claro: cor escura */
+  body[data-theme="light"] .stRadio > label p,
+  body.light .stRadio > label p {{
+      color: #333333 !important;
+      }}
+      .quiz-question-text {{
+          font-size: 1.2em;
+          color: inherit;
+          margin-bottom: 15px;
+          line-height: 1.6;
+      }}
     /* --- Estilos para Tema Escuro --- */
     body[data-theme="dark"] .quiz-question-text, 
     body.dark .quiz-question-text,
@@ -1799,7 +1799,13 @@ def initialize_quiz_session():
 
 def display_question(question_data, current_idx, total_questions):
     # Título geral do simulado
-    st.markdown("### 🐍 Simulado Interativo da certificação em Python - PCEP")
+    st.markdown("""            
+
+    ### 🐍 Simulado Interativo da certificação em Python - PCEP
+
+    --- 
+
+    """)
 
     st.markdown(
         f"<div class='quiz-question-text'><strong>Pergunta {current_idx + 1}/{total_questions}:</strong></div>", 
@@ -1965,14 +1971,19 @@ if not st.session_state.quiz_started:
             <h1 style="margin: 0;">Simulado Interativo da certificação em Python - PCEP</h1>
             <img src="https://pythoninstitute.org/assets/61f11fac8e6f4153315957.png" alt="PCEP Logo" width="60"/>
         </div>
+
+---            
+
     """, unsafe_allow_html=True)
 
 
     st.markdown("""
 ### 📢 Sobre a Certificação PCEP:
 
-Este simulado é baseado na prova oficial **PCEP30-0x – Certified Entry-Level Python Programmer**, oferecida pelo [Python Institute](https://pythoninstitute.org/pcep).
+Este simulado é baseado na prova oficial **PCEP™ – Certified Entry-Level Python Programmer**, (Exam PCEP-30-0x) oferecida pelo [Python Institute](https://pythoninstitute.org/pcep).
 
+---
+                
 📝 **Formato da Prova Oficial:**
 - 🔢 **Número de questões:** 30 (múltipla escolha)  
 - ⏰ **Tempo para realização:** 45 minutos  
