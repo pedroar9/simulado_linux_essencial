@@ -2,6 +2,9 @@ import streamlit as st
 import random
 import time
 import re
+from datetime import date
+
+hoje = date.today().strftime("%d/%m/%Y")
 
 
 # --- Questoes ---
@@ -1542,8 +1545,7 @@ st.set_page_config(
     page_title="Simulado Interativo PCEP",
     page_icon="🐍",
     layout="wide",
-    #initial_sidebar_state="collapsed"
-    initial_sidebar_state="auto"  # Pode ser 'expanded' para ver o timer melhor
+    initial_sidebar_state="auto"
 )
 
 # --- Definição das cores do tema ---
@@ -1556,11 +1558,6 @@ text_color = "#333333"
 # --- CSS para o tema azul ---
 custom_css = f"""
 <style>
-    /* Garante espaço no final da página para o rodapé fixo */
-    .block-container {{
-        padding-bottom: 150px !important;
-    }}
-
     /* ----------------------------- TIPOGRAFIA ----------------------------- */
     section.main h1, .block-container h1 {{
         font-size: 2.2em;
@@ -1671,7 +1668,7 @@ custom_css = f"""
         background-color: #282c34 !important;
         color: #abb2bf !important;
         padding: 0.6em !important;
-        margin: 0 !important;
+        margin: 0.5em !important;
         border-radius: 5px !important;
         overflow-x: auto !important;
         white-space: pre !important;
@@ -1736,27 +1733,55 @@ custom_css = f"""
 
     /* ----------------------------- RODAPÉ ----------------------------- */
     .rodape-container {{
-        position: fixed;
-        bottom: 0;
-        left: 0;
+        position: static;
         width: 100%;
-        z-index: 9999;
+        margin-top: 2rem;
+        padding: 0;
         background-color: #ffffff;
+        border-top: 1px solid #e0e0e0;
     }}
+    body[data-theme="dark"] .rodape-container,
     body.st-dark .rodape-container {{
-        background-color: #0e1117;
+        background-color: #1a1c23 !important;
+        border-top: 1px solid #33353b !important;
+    }}
+
+    /* Forçar herança do tema dark do contêiner pai */
+    .st-emotion-cache-13k62yr .rodape-container,
+    body[color-scheme="dark"] .rodape-container,
+    body[data-theme="dark"] .rodape-container,
+    body.dark .rodape-container,
+    body.st-dark .rodape-container {{
+        background-color: #1a1c23 !important;
+        border-top: 1px solid #33353b !important;
+    }}
+    .st-emotion-cache-13k62yr .rodape-container *,
+    body[color-scheme="dark"] .rodape-container *,
+    body[data-theme="dark"] .rodape-container *,
+    body.dark .rodape-container *,
+    body.st-dark .rodape-container * {{
+        background-color: #1a1c23 !important;
     }}
     .rodape {{
         margin: 0 auto;
         max-width: 900px;
         text-align: center;
-        font-size: 0.8em;
+        font-size: 0.7em;
         padding: 10px 1.5rem;
         color: #333333;
         box-sizing: border-box;
     }}
+    body[data-theme="dark"] .rodape,
     body.st-dark .rodape {{
-        color: #abb2bf;
+        background-color: transparent !important;
+        color: #FAFAFA !important;
+    }}
+    .st-emotion-cache-13k62yr .rodape,
+    body[color-scheme="dark"] .rodape,
+    body[data-theme="dark"] .rodape,
+    body.dark .rodape,
+    body.st-dark .rodape {{
+        color: #abb2bf !important;
     }}
     .rodape .linha {{
         margin: 5px 0;
@@ -1783,8 +1808,7 @@ custom_css = f"""
     }}
     @media (max-width: 768px) {{
         .rodape-container {{
-        position: static;
-        margin-top: 2rem;
+            margin-top: 2rem;
         }}
         section.main h1, .block-container h1 {{
             font-size: 1.2em !important;
@@ -1803,10 +1827,10 @@ custom_css = f"""
         }}
         /* Remove espaçamento excessivo entre os botões */
         .st-emotion-cache-ocqkz7 {{
+        margin-top: 0 !important;
         gap: 0.2rem !important; /* ou 0.2rem se quiser ainda mais próximo */
         }}
 
-    }}
 </style>
 """
 
@@ -1986,7 +2010,7 @@ def show_results_page():
                     st.markdown("---")
             
             if not any_answered and st.session_state.questions_to_ask:
-                 st.write("Você não respondeu a nenhuma questão.")
+              st.write("Você não respondeu a nenhuma questão.")
 
     if st.button("Reiniciar Simulado ♻️"):
         initialize_quiz_session()
@@ -2007,11 +2031,7 @@ if not st.session_state.quiz_started:
             <h1 style="margin: 0;">Simulado Interativo da certificação em Python - PCEP</h1>
             <img src="https://pythoninstitute.org/assets/61f11fac8e6f4153315957.png" alt="PCEP Logo" width="60"/>
         </div>
-
-      
-
     """, unsafe_allow_html=True)
-
 
     st.markdown("""
 ### 📢 Sobre a Certificação PCEP:
@@ -2135,11 +2155,7 @@ else:
 display_timer_and_handle_timeout()
 
 st.markdown(
-    """
-    <style>
-
-    </style>
-
+    f"""
     <div class="rodape-container">
       <div class="rodape">
           <div class="linha"> 👨‍💻 <b>Desenvolvido por:</b></div>
@@ -2151,9 +2167,9 @@ st.markdown(
                   <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">
               </a>         
           </div>  
-          <div class="linha"> </br> </div>
-          <div class="linha">⚙️ <b>Versão:</b> 2.0.1</div> 
-          <div class="linha">🗓️ <b>Build:</b> 21-06-2025</div>        
+          <div class="linha"> <br> </div>
+          <div class="linha">⚙️ <b>Versão:</b> 2.2.0</div> 
+          <div class="linha">🗓️ <b>Build:</b> {hoje}</div>        
       </div>
     </div>
     """,
