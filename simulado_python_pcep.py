@@ -1556,61 +1556,23 @@ text_color = "#333333"
 # --- CSS para o tema azul ---
 custom_css = f"""
 <style>
+    /* Garante espaço no final da página para o rodapé fixo */
+    .block-container {{
+        padding-bottom: 150px !important;
+    }}
+
+    /* ----------------------------- TIPOGRAFIA ----------------------------- */
     section.main h1, .block-container h1 {{
-        font-size: 2.5em;
+        font-size: 2.2em;
     }}
     section.main h2, .block-container h2 {{
-        font-size: 2em;
+        font-size: 1.6em;
     }}
-
     section.main h3, .block-container h3 {{
-        font-size: 1.5em;
+        font-size: 1.3em;
     }}
 
-    /* Rodapé desktop */
-        .rodape .linha {{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-        }}
-
-        .rodape .links {{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 12px;
-        }}
-
-    /* Responsividade geral */
-    @media (max-width: 768px) {{
-        section.main h1, .block-container h1 {{
-            font-size: 1.5em !important;
-        }}
-        .main h2 {{
-            font-size: 1.4em !important;
-        }}
-        .main h3 {{
-            font-size: 1.2em !important;
-        }}
-        .rodape .links {{
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            align-items: center;
-        }}
-        .rodape .linha {{
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-            align-items: center;
-        }}
-        .rodape .links a {{
-            display: inline-block;
-        }}
-    }}
-
-
+    /* ----------------------------- BOTÕES ----------------------------- */
     .stButton>button {{
         background-color: {primary_color};
         color: white;
@@ -1627,28 +1589,38 @@ custom_css = f"""
         background-color: #BEBEBE;
         color: #333333;
     }}
-   .stRadio > label p {{
-    font-size: 1.05em !important;
+    .stButton {{
+        margin-top: 0.5rem !important;
+        margin-bottom: 0.5rem !important;
+    }}
+    /* Alinha os botões quando aparecem juntos */
+    .stButton + .stButton {{
+    margin-top: 0 !important;
     }}
 
-  /* Tema escuro: cor clara */
-  body[data-theme="dark"] .stRadio > label p,
-  body.dark .stRadio > label p {{
-      color: #FAFAFA !important;
-      }}
+    /* ----------------------------- RADIO ----------------------------- */
+    .stRadio > label p {{
+        font-size: 1.05em !important;
+    }}
+    body[data-theme="dark"] .stRadio > label p,
+    body.dark .stRadio > label p {{
+        color: #FAFAFA !important;
+    }}
+    body[data-theme="light"] .stRadio > label p,
+    body.light .stRadio > label p {{
+        color: #333333 !important;
+    }}
+    div[data-baseweb="radio"] > label {{
+    margin-bottom: 6px !important;
+    }}
 
-  /* Tema claro: cor escura */
-  body[data-theme="light"] .stRadio > label p,
-  body.light .stRadio > label p {{
-      color: #333333 !important;
-      }}
-      .quiz-question-text {{
-          font-size: 1.2em;
-          color: inherit;
-          margin-bottom: 15px;
-          line-height: 1.6;
-      }}
-    /* --- Estilos para Tema Escuro --- */
+    /* ----------------------------- TEXTOS DAS QUESTÕES ----------------------------- */
+    .quiz-question-text {{
+        font-size: 1.2em;
+        color: inherit;
+        margin-bottom: 10px !important; 
+        line-height: 1.1;
+    }}
     body[data-theme="dark"] .quiz-question-text, 
     body.dark .quiz-question-text,
     body[data-theme="dark"] .quiz-question-text strong, 
@@ -1656,42 +1628,32 @@ custom_css = f"""
         color: #FAFAFA !important; 
     }}
 
+    /* ----------------------------- CAIXA DE EXPLICAÇÃO ----------------------------- */
     .explanation-box {{
         border: 1px solid {secondary_color};
         background-color: #E7F1FF;
         padding: 15px;
         border-radius: 5px;
-        margin-top: 15px;
+        margin-top: 10px !important';
         line-height: 1.6;
         color: {text_color};
     }}
-    /* Estilo da caixa de explicação para tema escuro */
-    body[data-theme="dark"] .explanation-box, 
-    body.dark .explanation-box,
-    body[data-theme="dark"] .explanation-box strong, 
-    body.dark .explanation-box strong {{
+    body[data-theme="dark"] .explanation-box,
+    body.dark .explanation-box {{
         background-color: #2C3440 !important;
         border-color: #4A5464 !important;
-        color: #FAFAFA !important; 
+        color: #FAFAFA !important;
     }}
 
-    /* Cor do texto "Escolha sua resposta" para tema escuro */
-    body[data-theme="dark"] div[data-baseweb="radio"] > label,
-    body.dark div[data-baseweb="radio"] > label,
-    body[data-theme="dark"] .stRadio > label p, 
-    body.dark .stRadio > label p,
-    body[data-theme="dark"] div[data-baseweb="radio"] > label div[data-testid="stMarkdownContainer"] p,
-    body.dark div[data-baseweb="radio"] > label div[data-testid="stMarkdownContainer"] p {{
-        color: #FAFAFA !important; 
-    }}
-
+    /* ----------------------------- RESULTADO ----------------------------- */
     .score-display {{
         font-size: 1.5em;
         font-weight: bold;
         color: {primary_color};
         text-align: center;
-        margin-top: 20px;
+        margin-top: 10px !important;
     }}
+
     .timer-display {{
         font-size: 1.1em;
         font-weight: bold;
@@ -1702,73 +1664,149 @@ custom_css = f"""
         background-color: #E7F1FF;
         text-align: center;
     }}
+
+    /* ----------------------------- BLOCOS DE CÓDIGO ----------------------------- */
     .quiz-question-text pre,
     .explanation-box pre {{
-    background-color: #282c34 !important;
-    color: #abb2bf !important;
-    padding: 0.6em !important;
-    margin: 0 !important;
-    border-radius: 5px !important;
-    overflow-x: auto !important;
-    white-space: pre !important;
-    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;
-    font-size: 0.95em !important;
-    line-height: 1.6 !important;
-    border: 1px solid #3e4451;
+        background-color: #282c34 !important;
+        color: #abb2bf !important;
+        padding: 0.6em !important;
+        margin: 0 !important;
+        border-radius: 5px !important;
+        overflow-x: auto !important;
+        white-space: pre !important;
+        font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;
+        font-size: 0.95em !important;
+        line-height: 1.6 !important;
+        border: 1px solid #3e4451;
     }}
 
     .quiz-question-text pre code,
     .explanation-box pre code {{
-    display: block !important;
-    padding: 0 !important;
-    margin: 0 !important;
-    white-space: pre !important;
-    border: none !important;
+        display: block !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        white-space: pre !important;
+        border: none !important;
     }}
+
     .quiz-question-text p > code,
     .quiz-question-text li > code,
     .explanation-box p > code,
     .explanation-box li > code {{
-    padding: 0.1em 0.4em !important;
-    margin: 0 0.2em !important;
-    display: inline-block !important;
-    white-space: pre-wrap !important;
-    vertical-align: baseline !important;
+        padding: 0.1em 0.4em !important;
+        margin: 0 0.2em !important;
+        display: inline-block !important;
+        white-space: pre-wrap !important;
+        vertical-align: baseline !important;
     }}
 
-    /* Syntax Highlighting inspirado no One Dark Pro */
-    .quiz-question-text pre .c1, .explanation-box pre .c1, 
-    .quiz-question-text pre .cm, .explanation-box pre .cm {{ 
+    /* ----------------------------- SYNTAX HIGHLIGHTING ----------------------------- */
+    .quiz-question-text pre .c1, .explanation-box pre .c1,
+    .quiz-question-text pre .cm, .explanation-box pre .cm {{
         color: #5c6370 !important; font-style: italic !important;
     }}
-    .quiz-question-text pre .k, .explanation-box pre .k, 
-    .quiz-question-text pre .kn, .explanation-box pre .kn {{ 
+    .quiz-question-text pre .k, .explanation-box pre .k,
+    .quiz-question-text pre .kn, .explanation-box pre .kn {{
         color: #c678dd !important;
     }}
-    .quiz-question-text pre .nb, .explanation-box pre .nb, 
-    .quiz-question-text pre .nc, .explanation-box pre .nc {{ 
+    .quiz-question-text pre .nb, .explanation-box pre .nb,
+    .quiz-question-text pre .nc, .explanation-box pre .nc {{
         color: #e5c07b !important;
     }}
     .quiz-question-text pre .nf, .explanation-box pre .nf {{
         color: #61afef !important;
     }}
-    .quiz-question-text pre .s1, .explanation-box pre .s1, 
+    .quiz-question-text pre .s1, .explanation-box pre .s1,
     .quiz-question-text pre .s2, .explanation-box pre .s2 {{
         color: #98c379 !important;
     }}
-    .quiz-question-text pre .mi, .explanation-box pre .mi, 
-    .quiz-question-text pre .mf, .explanation-box pre .mf {{ 
+    .quiz-question-text pre .mi, .explanation-box pre .mi,
+    .quiz-question-text pre .mf, .explanation-box pre .mf {{
         color: #d19a66 !important;
     }}
-    .quiz-question-text pre .bp, .explanation-box pre .bp, 
-    .quiz-question-text pre .o, .explanation-box pre .o {{ 
+    .quiz-question-text pre .bp, .explanation-box pre .bp,
+    .quiz-question-text pre .o, .explanation-box pre .o {{
         color: #56b6c2 !important;
     }}
-    .quiz-question-text pre .p, .explanation-box pre .p, 
-    .quiz-question-text pre .n, .explanation-box pre .n {{ 
+    .quiz-question-text pre .p, .explanation-box pre .p,
+    .quiz-question-text pre .n, .explanation-box pre .n {{
         color: #abb2bf !important;
     }}
 
+    /* ----------------------------- RODAPÉ ----------------------------- */
+    .rodape-container {{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
+        background-color: #ffffff;
+    }}
+    body.st-dark .rodape-container {{
+        background-color: #0e1117;
+    }}
+    .rodape {{
+        margin: 0 auto;
+        max-width: 900px;
+        text-align: center;
+        font-size: 0.8em;
+        padding: 10px 1.5rem;
+        color: #333333;
+        box-sizing: border-box;
+    }}
+    body.st-dark .rodape {{
+        color: #abb2bf;
+    }}
+    .rodape .linha {{
+        margin: 5px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+    }}
+    .rodape .links {{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 5px;
+    }}
+    .rodape .links a {{
+        text-decoration: none;
+        transition: transform 0.3s ease;
+    }}
+    .rodape .links a:hover {{
+        transform: scale(1.1);
+    }}
+    @media (max-width: 768px) {{
+        .rodape-container {{
+        position: static;
+        margin-top: 2rem;
+        }}
+        section.main h1, .block-container h1 {{
+            font-size: 1.2em !important;
+        }}
+        .main h2 {{
+            font-size: 1.2em !important;
+        }}
+        .main h3 {{
+            font-size: 1em !important;
+        }}
+        .rodape {{
+            font-size: 0.75em;
+        }}
+        .rodape .links {{
+            flex-direction: row;  /* mantém horizontal no mobile */
+        }}
+        /* Remove espaçamento excessivo entre os botões */
+        .st-emotion-cache-ocqkz7 {{
+        gap: 0.2rem !important; /* ou 0.2rem se quiser ainda mais próximo */
+        }}
+
+    }}
 </style>
 """
 
@@ -1802,8 +1840,6 @@ def display_question(question_data, current_idx, total_questions):
     st.markdown("""            
 
     ### 🐍 Simulado Interativo da certificação em Python - PCEP
-
-    --- 
 
     """)
 
@@ -1972,14 +2008,14 @@ if not st.session_state.quiz_started:
             <img src="https://pythoninstitute.org/assets/61f11fac8e6f4153315957.png" alt="PCEP Logo" width="60"/>
         </div>
 
----            
+      
 
     """, unsafe_allow_html=True)
 
 
     st.markdown("""
 ### 📢 Sobre a Certificação PCEP:
-
+                
 Este simulado é baseado na prova oficial **PCEP™ – Certified Entry-Level Python Programmer**, (Exam PCEP-30-0x) oferecida pelo [Python Institute](https://pythoninstitute.org/pcep).
 
 ---
@@ -1989,8 +2025,6 @@ Este simulado é baseado na prova oficial **PCEP™ – Certified Entry-Level Py
 - ⏰ **Tempo para realização:** 45 minutos  
 - ✅ **Nota mínima para aprovação:** 70% (ou seja, 21 de 30 questões)  
 - 📌 **Aplicação:** Online com supervisão por IA (_proctoring_) ou presencial em centros **Pearson VUE**
-
----
 
 🧠 Utilize este simulado para testar seus conhecimentos e se preparar para a certificação real!
 
@@ -2103,75 +2137,7 @@ display_timer_and_handle_timeout()
 st.markdown(
     """
     <style>
-    .rodape-container {{
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        z-index: 9999;
-        background-color: #ffffff;
-    }}
-    .rodape {{
-        margin: 0 auto;
-        max-width: 900px;
-        text-align: center;
-        font-size: 0.8em;
-        padding: 10px 1.5rem;
-        color: #333333;
-        box-sizing: border-box;
-    }}
-    body.st-dark .rodape-container {{
-        background-color: #0e1117;
-    }}
 
-    body.st-dark .rodape {{
-        color: #abb2bf;
-    }}
-
-    .rodape .linha {{
-        margin: 5px 0;
-        align-items: center;
-        display: flex;
-        justify-content: center;
-    }}
-
-    .rodape .links {{
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 5px;
-    }}
-
-    .rodape .links a {{
-        text-decoration: none;
-        transition: transform 0.3s ease;
-    }}
-
-    .rodape .links a:hover {{
-        transform: scale(1.1);
-    }}
-
-    @media (max-width: 768px) {{
-        .rodape {{
-            font-size: 0.75em;
-            padding-bottom: 60px;
-            align-items: center;
-            display: inline-flex;
-            justify-content: center;
-        }}
-        .rodape .links {{
-            flex-direction: column;
-        }}
-        .rodape .links a {{
-            display: inline-block;
-        }}
-        .centered-gif-mobile {{
-            display: flex;
-            justify-content: center; !important;
-            align-items: center; !important;
-        }}
-    }}
     </style>
 
     <div class="rodape-container">
