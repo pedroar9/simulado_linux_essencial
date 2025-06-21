@@ -2100,6 +2100,15 @@ else:
     total_questions = st.session_state.total_quiz_questions
     current_question = st.session_state.questions_to_ask[current_idx]
 
+    # --- Barra de Progresso ---
+    # O progresso e o texto devem refletir a questão atual (índice + 1)
+    progress_value = (current_idx + 1) / total_questions
+    st.markdown(
+        f"<div class='progress-text'>{current_idx + 1} / {total_questions}</div>", 
+        unsafe_allow_html=True
+    )
+    st.progress(progress_value)
+    # --- Fim da Barra de Progresso ---
     user_choice = display_question(current_question, current_idx, total_questions)
 
     # Criar um placeholder para a área de feedback (sucesso/erro e explicação)
@@ -2204,7 +2213,7 @@ st.markdown(
               </a>         
           </div>  
           <div class="linha"> <br> </div>
-          <div class="linha">⚙️ <b>Versão:</b> 2.3.0</div> 
+          <div class="linha">⚙️ <b>Versão:</b> 2.4.1</div> 
           <div class="linha">🗓️ <b>Build:</b> {data_atual}</div>        
       </div>
     </div>
