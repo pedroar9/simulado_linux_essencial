@@ -4,8 +4,7 @@ import time
 import re
 from datetime import date
 
-hoje = date.today().strftime("%d/%m/%Y")
-
+data_atual = date.today().strftime("%d/%m/%Y")
 
 # --- Questoes ---
 questions_data = [
@@ -1554,7 +1553,6 @@ secondary_color = "#79A6DC"
 background_color = "#F0F8FF"
 text_color = "#333333"
 
-
 # --- CSS para o tema azul ---
 custom_css = f"""
 <style>
@@ -2056,12 +2054,11 @@ def show_results_page():
         st.session_state.quiz_completed = False
         st.rerun()
 
-
-# --- Inicializar estado do quiz ---
+# --- Inicializar estado do simulado ---
 if "questions_to_ask" not in st.session_state:
     initialize_quiz_session()
 
-# --- Interface principal ---
+# --- Interface principal do simulado ---
 if not st.session_state.quiz_started:
     st.markdown("""
         <div style="display: flex; align-items: center; gap: 12px;">
@@ -2192,6 +2189,7 @@ else:
 
 display_timer_and_handle_timeout()
 
+# --- Rodapé com informações do desenvolvedor e versão ---
 st.markdown(
     f"""
     <div class="rodape-container">
@@ -2207,7 +2205,7 @@ st.markdown(
           </div>  
           <div class="linha"> <br> </div>
           <div class="linha">⚙️ <b>Versão:</b> 2.3.0</div> 
-          <div class="linha">🗓️ <b>Build:</b> {hoje}</div>        
+          <div class="linha">🗓️ <b>Build:</b> {data_atual}</div>        
       </div>
     </div>
     """,
