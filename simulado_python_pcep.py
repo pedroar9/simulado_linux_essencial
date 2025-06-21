@@ -4,7 +4,7 @@ import time
 import re
 
 
-# --- Questions Data ---
+# --- Questoes ---
 questions_data = [
   {
     "question": "Qual é o resultado da seguinte expressão: `3 * 'ab'`?",
@@ -1537,7 +1537,7 @@ questions_data = [
   }
 ]
 
-# --- App Configuration ---
+# --- Configuracoes da aplicacao ---
 st.set_page_config(
     page_title="Simulado Interativo PCEP",
     page_icon="🐍",
@@ -1553,7 +1553,7 @@ background_color = "#F0F8FF"
 text_color = "#333333"
 
 
-# --- CSS customizado para o tema azul ---
+# --- CSS para o tema azul ---
 custom_css = f"""
 <style>
     section.main h1, .block-container h1 {{
@@ -1564,7 +1564,7 @@ custom_css = f"""
     }}
 
     section.main h3, .block-container h3 {{
-        font-size: 1em;
+        font-size: 1.5em;
     }}
 
     /* Rodapé desktop */
@@ -1663,7 +1663,7 @@ body.light .stRadio > label p {{
         border-radius: 5px;
         margin-top: 15px;
         line-height: 1.6;
-        color: {text_color}; /* Cor do texto padrão para tema claro */
+        color: {text_color};
     }}
     /* Estilo da caixa de explicação para tema escuro */
     body[data-theme="dark"] .explanation-box, 
@@ -1737,35 +1737,35 @@ body.light .stRadio > label p {{
     }}
 
     /* Syntax Highlighting inspirado no One Dark Pro */
-    .quiz-question-text pre .c1, .explanation-box pre .c1, /* Removed 'code' from selector */
-    .quiz-question-text pre .cm, .explanation-box pre .cm {{ /* Removed 'code' from selector */
+    .quiz-question-text pre .c1, .explanation-box pre .c1, 
+    .quiz-question-text pre .cm, .explanation-box pre .cm {{ 
         color: #5c6370 !important; font-style: italic !important;
     }}
-    .quiz-question-text pre .k, .explanation-box pre .k, /* Removed 'code' from selector */
-    .quiz-question-text pre .kn, .explanation-box pre .kn {{ /* Removed 'code' from selector */
+    .quiz-question-text pre .k, .explanation-box pre .k, 
+    .quiz-question-text pre .kn, .explanation-box pre .kn {{ 
         color: #c678dd !important;
     }}
-    .quiz-question-text pre .nb, .explanation-box pre .nb, /* Removed 'code' from selector */
-    .quiz-question-text pre .nc, .explanation-box pre .nc {{ /* Removed 'code' from selector */
+    .quiz-question-text pre .nb, .explanation-box pre .nb, 
+    .quiz-question-text pre .nc, .explanation-box pre .nc {{ 
         color: #e5c07b !important;
     }}
-    .quiz-question-text pre .nf, .explanation-box pre .nf {{ /* Removed 'code' from selector */
+    .quiz-question-text pre .nf, .explanation-box pre .nf {{
         color: #61afef !important;
     }}
-    .quiz-question-text pre .s1, .explanation-box pre .s1, /* Removed 'code' from selector */
-    .quiz-question-text pre .s2, .explanation-box pre .s2 {{ /* Removed 'code' from selector */
+    .quiz-question-text pre .s1, .explanation-box pre .s1, 
+    .quiz-question-text pre .s2, .explanation-box pre .s2 {{
         color: #98c379 !important;
     }}
-    .quiz-question-text pre .mi, .explanation-box pre .mi, /* Removed 'code' from selector */
-    .quiz-question-text pre .mf, .explanation-box pre .mf {{ /* Removed 'code' from selector */
+    .quiz-question-text pre .mi, .explanation-box pre .mi, 
+    .quiz-question-text pre .mf, .explanation-box pre .mf {{ 
         color: #d19a66 !important;
     }}
-    .quiz-question-text pre .bp, .explanation-box pre .bp, /* Removed 'code' from selector */
-    .quiz-question-text pre .o, .explanation-box pre .o {{ /* Removed 'code' from selector */
+    .quiz-question-text pre .bp, .explanation-box pre .bp, 
+    .quiz-question-text pre .o, .explanation-box pre .o {{ 
         color: #56b6c2 !important;
     }}
-    .quiz-question-text pre .p, .explanation-box pre .p, /* Removed 'code' from selector */
-    .quiz-question-text pre .n, .explanation-box pre .n {{ /* Removed 'code' from selector */
+    .quiz-question-text pre .p, .explanation-box pre .p, 
+    .quiz-question-text pre .n, .explanation-box pre .n {{ 
         color: #abb2bf !important;
     }}
 
@@ -1774,12 +1774,12 @@ body.light .stRadio > label p {{
 
 st.markdown(custom_css, unsafe_allow_html=True)
 
-# --- Aqui ficariam as variáveis globais do quiz como perguntas, limite de tempo etc ---
+# --- Aqui ficam as variáveis globais do SIMULADO como numeros de perguntas, limite de tempo e porcetagem de aprovado ---
 NUM_QUESTIONS_PER_QUIZ = 30
 QUIZ_TIME_LIMIT_MINUTES = 45
 PASSING_PERCENTAGE = 70
 
-# --- Funções auxiliares ---
+# --- Funções ---
 def initialize_quiz_session():
     if len(questions_data) >= NUM_QUESTIONS_PER_QUIZ:
         selected_questions = random.sample(questions_data, NUM_QUESTIONS_PER_QUIZ)
@@ -1807,7 +1807,7 @@ def display_question(question_data, current_idx, total_questions):
 
     question_text = question_data['question']
 
-    # Pré-processar para blocos de código cercados
+    # Pré-processar para blocos de código "cercados" por ```python ... ```
     # Regex para encontrar ```python ... ``` e substituir por <pre><code class="language-python">...</code></pre>
     # A flag re.DOTALL faz com que '.' corresponda também a quebras de linha
     question_text = re.sub(
@@ -1895,9 +1895,9 @@ def show_results_page():
     pct = (score / total) * 100 if total > 0 else 0
 
     if pct >= PASSING_PERCENTAGE:
-        st.header("🎉 Quiz Concluído! 🎉")
+        st.header("🎉 Simulado Concluído! 🎉")
     else:
-        st.header("👎 Quiz Concluído! 👎")
+        st.header("👎 Simulado Concluído! 👎")
 
     if st.session_state.get("time_up", False):
         st.warning("⏰ Seu tempo para o quiz esgotou!")
@@ -1907,10 +1907,15 @@ def show_results_page():
     if pct >= PASSING_PERCENTAGE:
         st.success("Parabéns! Você foi aprovado na certificação PCEP! ✅")
         st.balloons()  # balões só para APROVADOS
+        st.markdown("<div class='centered-gif-mobile'>", unsafe_allow_html=True)
+        st.image("https://imagens.net.br/wp-content/uploads/2024/06/os-melhores-gifs-de-parabens-para-qualquer-ocasiao-1.gif", width=300)
+        st.markdown("</div>", unsafe_allow_html=True)
     else:
         st.error("Você não atingiu a pontuação mínima para aprovação. Tente novamente! ❌")
-        st.snow() # emojis estáticos
+        st.snow() # emojis de gelor para REPROVADOS
+        st.markdown("<div class='centered-gif-mobile'>", unsafe_allow_html=True)
         st.image("https://media1.tenor.com/m/gw207uCZe_MAAAAC/estuda-porra-evelyn-castro.gif", width=300)
+        st.markdown("</div>", unsafe_allow_html=True)
 
     with st.expander("📖 Revisar apenas as questões respondidas"):
         any_answered = False
@@ -1953,27 +1958,26 @@ if "questions_to_ask" not in st.session_state:
     initialize_quiz_session()
 
 # --- Interface principal ---
-
 if not st.session_state.quiz_started:
     st.markdown("""
         <div style="display: flex; align-items: center; gap: 12px;">
             <img src="https://static.cdnlogo.com/logos/p/83/python.svg" alt="Python Logo" width="65"/>
             <h1 style="margin: 0;">Simulado Interativo da certificação em Python - PCEP</h1>
-            <img src="https://pythoninstitute.org/assets/61f11fac8e6f4153315957.png" alt="PCEP Logo" width="50"/>
+            <img src="https://pythoninstitute.org/assets/61f11fac8e6f4153315957.png" alt="PCEP Logo" width="60"/>
         </div>
     """, unsafe_allow_html=True)
 
 
     st.markdown("""
-### 👨‍💻 Sobre a Certificação PCEP:
+### 📢 Sobre a Certificação PCEP:
 
 Este simulado é baseado na prova oficial **PCEP30-0x – Certified Entry-Level Python Programmer**, oferecida pelo [Python Institute](https://pythoninstitute.org/pcep).
 
 📝 **Formato da Prova Oficial:**
-- 📋 **Número de questões:** 30 (múltipla escolha)  
-- ⏱ **Tempo para realização:** 45 minutos  
+- 🔢 **Número de questões:** 30 (múltipla escolha)  
+- ⏰ **Tempo para realização:** 45 minutos  
 - ✅ **Nota mínima para aprovação:** 70% (ou seja, 21 de 30 questões)  
-- 🌐 **Formato:** Online com supervisão por IA (_proctoring_) ou presencial em centros **Pearson VUE**
+- 📌 **Aplicação:** Online com supervisão por IA (_proctoring_) ou presencial em centros **Pearson VUE**
 
 ---
 
@@ -2006,7 +2010,7 @@ else:
     action_buttons_placeholder = st.empty()
 
     if not st.session_state.answer_submitted:
-        # Botões "Confirmar e Avançar" e "Finalizar Quiz" DENTRO do placeholder inicial
+        # Botões "Confirmar e Avançar" e "Finalizar Simulado" DENTRO do placeholder inicial
         with initial_action_buttons_placeholder.container():
             col1, col2 = st.columns([3, 1.1]) # Ajuste a proporção conforme necessário
             with col1:
@@ -2029,7 +2033,7 @@ else:
                         initial_action_buttons_placeholder.empty() # Limpa estes botões
                         st.rerun()
             with col2:
-                if st.button("Finalizar Quiz 🏁", key="finalizar_quiz_main", use_container_width=True):
+                if st.button("Finalizar Simulado 🏁", key="finalizar_quiz_main", use_container_width=True):
                     st.session_state.quiz_completed = True
                     initial_action_buttons_placeholder.empty() # Limpa estes botões
                     if hasattr(st.session_state, 'timer_placeholder'): # Garante que o placeholder do timer existe
@@ -2073,7 +2077,7 @@ else:
                         action_buttons_placeholder.empty()
                         st.rerun()
             with col2:
-                if st.button("Finalizar Quiz 🏁", key="finalizar_quiz_feedback", use_container_width=True):
+                if st.button("Finalizar Simulado 🏁", key="finalizar_quiz_feedback", use_container_width=True):
                     st.session_state.quiz_completed = True
                     feedback_placeholder.empty()
                     action_buttons_placeholder.empty()
@@ -2148,21 +2152,31 @@ st.markdown(
         .rodape .links {{
             flex-direction: column;
         }}
+        .rodape .links a {{
+            display: inline-block;
+        }}
+        .centered-gif-mobile {{
+            display: flex;
+            justify-content: center; !important;
+            align-items: center; !important;
+        }}
     }}
     </style>
 
     <div class="rodape-container">
       <div class="rodape">
-          <div class="linha">📅 Versão: 1.0 de 19-06-2025</div>
-          <div class="linha">Desenvolvido por:</div>
+          <div class="linha"> 👨‍💻 <b>Desenvolvido por:</b></div>
           <div class="links">
               <a href="https://github.com/pedroar9/" target="_blank">
                   <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
               </a>
               <a href="https://www.linkedin.com/in/pedrocarlos-assis/" target="_blank">
                   <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white">
-              </a>
-          </div>
+              </a>         
+          </div>  
+          <div class="linha"> </br> </div>
+          <div class="linha">⚙️ <b>Versão:</b> 2.0.1</div> 
+          <div class="linha">🗓️ <b>Build:</b> 21-06-2025</div>        
       </div>
     </div>
     """,
