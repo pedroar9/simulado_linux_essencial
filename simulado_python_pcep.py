@@ -6,8 +6,12 @@ import json
 import os
 import pandas as pd
 from datetime import date, datetime
+import pytz
 
-data_atual = date.today().strftime("%d/%m/%Y")
+fuso_brasilia = pytz.timezone("America/Sao_Paulo")
+agora = datetime.now(fuso_brasilia)
+data_atual = agora.today().strftime("%d/%m/%Y")
+
 
 # --- Questoes ---
 questions_data = [
@@ -2331,7 +2335,7 @@ st.markdown(
               </a>         
           </div>  
           <div class="linha"> <br> </div>
-          <div class="linha">⚙️ <b>Versão:</b> 2.9.0</div> 
+          <div class="linha">⚙️ <b>Versão:</b> 2.9.1</div> 
           <div class="linha">🗓️ <b>Build:</b> {data_atual}</div>        
       </div>
     </div>
