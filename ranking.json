@@ -1,79 +1,79 @@
 [
-    {
-        "name": "Pedro",
-        "email": "",
-        "city": "Brasília",
-        "country": "Brasil",
-        "score": 25,
-        "questions_answered": 30,
-        "time_seconds": 1500,
-        "date": "21-06-2025 21:42",
-        "total_questions": 30
-    },
-    {
-        "name": "Maria",
-        "email": "",
-        "city": "São Paulo",
-        "country": "Brasil",
-        "score": 20,
-        "questions_answered": 25,
-        "time_seconds": 1800,
-        "date": "21-06-2025 21:45",
-        "total_questions": 30
-    },
-    {
-        "name": "John",
-        "email": "",
-        "city": "New York",
-        "country": "USA",
-        "score": 15,
-        "questions_answered": 20,
-        "time_seconds": 2000,
-        "date": "21-06-2025 21:50",
-        "total_questions": 30
-    },
-    {
-        "name": "Anônimo",
-        "email": "",
-        "city": "",
-        "country": "",
-        "score": 13,
-        "questions_answered": 15,
-        "time_seconds": 129,
-        "date": "22-06-2025 13:33",
-        "total_questions": 30
-    },
-    {
-        "name": "Alice",
-        "email": "",
-        "city": "London",
-        "country": "UK",
-        "score": 10,
-        "questions_answered": 15,
-        "time_seconds": 2200,
-        "date": "21-06-2025 21:55",
-        "total_questions": 30
-    },
-    {
-        "name": "Bob",
-        "email": "",
-        "city": "Berlin",
-        "country": "Germany",
-        "score": 5,
-        "questions_answered": 10,
-        "time_seconds": 2400,
-        "date": "21-06-2025 22:00",
-        "total_questions": 30
-    },
-    {
-        "name": "Anônimo",
-        "email": "",
-        "city": "",
-        "country": "",
-        "score": 0,
-        "questions_answered": 0,
-        "time_seconds": 242,
-        "date": "22-06-2025 13:23",
-        "total_questions": 40
-    }
+  {
+    "name": "Pedro",
+    "email": "",
+    "city": "Brasília",
+    "country": "Brasil",
+    "score": 25,
+    "questions_answered": 30,
+    "time_seconds": 1500,
+    "date": "21-06-2025 21:42",
+    "total_questions": 30
+  },
+  {
+    "name": "Pedro",
+    "email": "",
+    "city": "Brasília",
+    "country": "Brasil",
+    "score": 31,
+    "questions_answered": 40,
+    "time_seconds": 902,
+    "date": "22-06-2025 13:42",
+    "total_questions": 40
+  },
+  {
+    "name": "Maria",
+    "email": "",
+    "city": "São Paulo",
+    "country": "Brasil",
+    "score": 20,
+    "questions_answered": 25,
+    "time_seconds": 1800,
+    "date": "21-06-2025 21:45",
+    "total_questions": 30
+  },
+  {
+    "name": "John",
+    "email": "",
+    "city": "New York",
+    "country": "USA",
+    "score": 15,
+    "questions_answered": 20,
+    "time_seconds": 2000,
+    "date": "21-06-2025 21:50",
+    "total_questions": 30
+  },
+  {
+    "name": "Anônimo",
+    "email": "",
+    "city": "",
+    "country": "",
+    "score": 13,
+    "questions_answered": 15,
+    "time_seconds": 129,
+    "date": "22-06-2025 13:33",
+    "total_questions": 30
+  },
+  {
+    "name": "Alice",
+    "email": "",
+    "city": "London",
+    "country": "UK",
+    "score": 10,
+    "questions_answered": 15,
+    "time_seconds": 2200,
+    "date": "21-06-2025 21:55",
+    "total_questions": 30
+  },
+  {
+    "name": "Bob",
+    "email": "",
+    "city": "Berlin",
+    "country": "Germany",
+    "score": 5,
+    "questions_answered": 10,
+    "time_seconds": 2400,
+    "date": "21-06-2025 22:00",
+    "total_questions": 30
+  }
 ]

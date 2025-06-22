@@ -17,6 +17,186 @@ data_atual = agora.today().strftime("%d/%m/%Y")
 # --- Questions Data ---
 questions_data = [
     {
+        "question": "Qual comando exibe o endereço de hardware (MAC) de interfaces de rede?",
+        "options": ["ifconfig", "ip link", "netstat -m", "macaddr"],
+        "answer": "ip link",
+        "explanation": "`ip link` exibe informações sobre interfaces de rede, incluindo o endereço MAC."
+    },
+    {
+        "question": "Qual comando é usado para criar um link simbólico?",
+        "options": ["ln -s", "link", "symlink", "ln -h"],
+        "answer": "ln -s",
+        "explanation": "`ln -s` cria um link simbólico (atalho) para um arquivo ou diretório."
+    },
+    {
+        "question": "Qual comando exibe as conexões de rede ativas?",
+        "options": ["netstat -a", "ifconfig -c", "ip -c", "route -n"],
+        "answer": "netstat -a",
+        "explanation": "`netstat -a` lista todas as conexões de rede ativas e portas abertas."
+    },
+    {
+        "question": "Qual diretório contém os logs do sistema?",
+        "options": ["/var/log", "/etc/log", "/log", "/sys/log"],
+        "answer": "/var/log",
+        "explanation": "`/var/log` armazena arquivos de log do sistema, como mensagens e erros."
+    },
+    {
+        "question": "Qual comando exibe o nome do host do sistema?",
+        "options": ["hostname", "host", "uname -h", "sysname"],
+        "answer": "hostname",
+        "explanation": "`hostname` retorna o nome do host configurado no sistema."
+    },
+    {
+        "question": "Qual comando é usado para remover um grupo do sistema?",
+        "options": ["groupdel", "delgroup", "rmgroup", "groupremove"],
+        "answer": "groupdel",
+        "explanation": "`groupdel` remove um grupo existente do sistema."
+    },
+    {
+        "question": "Qual comando exibe informações detalhadas sobre o hardware do sistema?",
+        "options": ["lscpu", "hwinfo", "dmidecode", "sysinfo"],
+        "answer": "dmidecode",
+        "explanation": "`dmidecode` exibe informações detalhadas sobre o hardware, como BIOS e memória."
+    },
+    {
+        "question": "Qual comando é usado para compactar arquivos no formato bzip2?",
+        "options": ["bzip2", "gzip", "zip", "tar -b"],
+        "answer": "bzip2",
+        "explanation": "`bzip2` comprime arquivos usando o algoritmo bzip2, gerando arquivos `.bz2`."
+    },
+    {
+        "question": "Qual comando exibe o conteúdo de um arquivo página por página?",
+        "options": ["less", "more", "cat -p", "page"],
+        "answer": "less",
+        "explanation": "`less` permite visualizar arquivos página por página com navegação interativa."
+    },
+    {
+        "question": "Qual comando é usado para procurar por padrões em arquivos?",
+        "options": ["grep", "find", "search", "pattern"],
+        "answer": "grep",
+        "explanation": "`grep` busca por padrões ou expressões regulares em arquivos de texto."
+    },
+    {
+        "question": "Qual comando exibe o tamanho de arquivos em formato legível?",
+        "options": ["ls -lh", "du -h", "df -h", "size"],
+        "answer": "ls -lh",
+        "explanation": "`ls -lh` lista arquivos com tamanhos em formato legível, como KB, MB ou GB."
+    },
+    {
+        "question": "Qual arquivo contém informações sobre os grupos do sistema?",
+        "options": ["/etc/group", "/etc/users", "/etc/gpasswd", "/etc/grp"],
+        "answer": "/etc/group",
+        "explanation": "`/etc/group` armazena informações sobre os grupos do sistema."
+    },
+    {
+        "question": "Qual comando é usado para instalar pacotes no Debian/Ubuntu?",
+        "options": ["apt install", "yum install", "pkg install", "dpkg -i"],
+        "answer": "apt install",
+        "explanation": "`apt install` é usado para instalar pacotes em sistemas baseados em Debian/Ubuntu."
+    },
+    {
+        "question": "Qual comando exibe a versão do kernel em uso?",
+        "options": ["uname -r", "kernel -v", "version", "sysctl -k"],
+        "answer": "uname -r",
+        "explanation": "`uname -r` mostra a versão do kernel Linux em execução."
+    },
+    {
+        "question": "Qual comando é usado para desmontar um sistema de arquivos?",
+        "options": ["umount", "unmount", "dismount", "mount -u"],
+        "answer": "umount",
+        "explanation": "`umount` desmonta um sistema de arquivos previamente montado."
+    },
+    {
+        "question": "Qual comando exibe o status de serviços no systemd?",
+        "options": ["systemctl status", "service -s", "chkconfig", "initctl"],
+        "answer": "systemctl status",
+        "explanation": "`systemctl status` exibe o status de um serviço gerenciado pelo systemd."
+    },
+    {
+        "question": "Qual comando cria um arquivo tarball com compressão bzip2?",
+        "options": ["tar -cvjf", "tar -cvzf", "bzip2 -t", "tar -b"],
+        "answer": "tar -cvjf",
+        "explanation": "`tar -cvjf` cria um arquivo tarball compactado com bzip2 (`.tar.bz2`)."
+    },
+    {
+        "question": "Qual comando exibe informações sobre a CPU do sistema?",
+        "options": ["lscpu", "cpuinfo", "procstat", "syscpu"],
+        "answer": "lscpu",
+        "explanation": "`lscpu` exibe informações detalhadas sobre a CPU, como núcleos e arquitetura."
+    },
+    {
+        "question": "Qual comando é usado para editar arquivos de texto no terminal?",
+        "options": ["nano", "edit", "text", "write"],
+        "answer": "nano",
+        "explanation": "`nano` é um editor de texto simples e amigável para uso no terminal."
+    },
+    {
+        "question": "Qual comando exibe o ID do usuário atual e seus grupos?",
+        "options": ["id", "whoami", "user", "groups -a"],
+        "answer": "id",
+        "explanation": "`id` mostra o UID, GID e grupos associados ao usuário atual."
+    },
+    {
+        "question": "Qual comando verifica erros em um sistema de arquivos?",
+        "options": ["fsck", "checkfs", "diskcheck", "verifyfs"],
+        "answer": "fsck",
+        "explanation": "`fsck` verifica e repara erros em sistemas de arquivos."
+    },
+    {
+        "question": "Qual comando lista os pacotes instalados em um sistema RPM?",
+        "options": ["rpm -qa", "yum list", "dnf -l", "pkg list"],
+        "answer": "rpm -qa",
+        "explanation": "`rpm -qa` lista todos os pacotes instalados em sistemas baseados em RPM."
+    },
+    {
+        "question": "Qual comando exibe o conteúdo de um arquivo em hexadecimal?",
+        "options": ["hexdump", "cat -h", "od", "dump"],
+        "answer": "hexdump",
+        "explanation": "`hexdump` exibe o conteúdo de arquivos em formato hexadecimal ou outros formatos."
+    },
+    {
+        "question": "Qual comando é usado para agendar tarefas repetitivas em intervalos específicos?",
+        "options": ["crontab", "at", "schedule", "task"],
+        "answer": "crontab",
+        "explanation": "`crontab` gerencia tarefas agendadas para execução periódica no Linux."
+    },
+    {
+        "question": "Qual comando exibe o uso de portas de rede no sistema?",
+        "options": ["ss", "netstat -p", "ip port", "ports"],
+        "answer": "ss",
+        "explanation": "`ss` exibe informações sobre soquetes, incluindo portas de rede em uso."
+    },
+    {
+        "question": "Qual comando é usado para definir variáveis de ambiente temporariamente?",
+        "options": ["export", "setenv", "envset", "var"],
+        "answer": "export",
+        "explanation": "`export` define variáveis de ambiente para a sessão atual do shell."
+    },
+    {
+        "question": "Qual comando é usado para localizar arquivos com base em critérios específicos?",
+        "options": ["find", "search", "locate -f", "where"],
+        "answer": "find",
+        "explanation": "`find` busca arquivos no sistema com base em critérios como nome, tamanho ou tipo."
+    },
+    {
+        "question": "Qual comando exibe informações sobre o espaço de swap?",
+        "options": ["swapon -s", "swap -l", "free -s", "memswap"],
+        "answer": "swapon -s",
+        "explanation": "`swapon -s` exibe informações sobre o uso do espaço de swap no sistema."
+    },
+    {
+        "question": "Qual comando é usado para renomear arquivos em lote no Linux?",
+        "options": ["rename", "mv -r", "batch", "ren"],
+        "answer": "rename",
+        "explanation": "`rename` permite renomear múltiplos arquivos com base em padrões."
+    },
+    {
+        "question": "Qual comando exibe o status de um processo específico pelo nome?",
+        "options": ["pidof", "ps -n", "top -p", "status"],
+        "answer": "pidof",
+        "explanation": "`pidof` retorna o ID do processo (PID) de um programa em execução pelo nome."
+    },
+    {
         "question": "Qual comando é usado para agendar tarefas para execução única?",
         "options": ["at", "cron", "schedule", "task"],
         "answer": "at",
@@ -41,7 +221,7 @@ questions_data = [
         "explanation": "`lsmod` mostra os módulos do kernel carregados atualmente."
     },
     {
-        "question": "Qual comando é usado para adicionar um grupo?",
+        "question": "Qual cquestions_data omando é usado para adicionar um grupo?",
         "options": ["groupadd", "addgroup", "newgroup", "mkgroup"],
         "answer": "groupadd",
         "explanation": "`groupadd` cria um novo grupo no sistema."
