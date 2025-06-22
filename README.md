@@ -7,7 +7,7 @@ Este projeto é um **simulado** para auxiliar nos estudos para a certificação 
 
 A aplicação foi desenvolvida utilizando:
 
-- 🐧 **Python** como linguagem principal
+- 🐍 **Python** como linguagem principal
 - 📄 **Markdown** para estrutura textual
 - 🎨 **HTML5 + CSS3** para estilização embutida
 - 💻 **Streamlit** como framework web de interface interativa
@@ -27,8 +27,8 @@ Para configurar o ambiente de desenvolvimento, siga os passos abaixo:
 
 1.  **Clone o repositório (se aplicável):**
     ```bash
-    git clone https://github.com/pedroar9/simulado_linux_essencial.git
-    cd simulado_python_pcep
+    git clone https://github.com/pedroar9/simulado_linux_essentials.git
+    cd simulado_linux_essentials
     ```
 
 2.  **Crie um ambiente virtual (recomendado):**
@@ -57,7 +57,7 @@ Para executar o simulado, siga os passos abaixo:
 
 1. **Execute o comando abaixo no terminal**  
     ```bash 
-    streamlit run simulado_linux_essencial.py
+    streamlit run simulado_linux_essentials.py
     ```
 
 ## © Licença
