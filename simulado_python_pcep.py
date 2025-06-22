@@ -17,6 +17,336 @@ data_atual = agora.today().strftime("%d/%m/%Y")
 # --- Questoes ---
 questions_data = [
   {
+    "question": "O que será exibido pelo código:\n```python\nprint(2 + 3 * 4)\n```\n?",
+    "options": [
+      "20",
+      "14",
+      "15",
+      "24"
+    ],
+    "answer": "14",
+    "explanation": "Em Python, a multiplicação (`*`) tem maior precedência que a adição (`+`). Assim, `3 * 4` é calculado primeiro (12), e depois `2 + 12` resulta em `14`."
+  },
+  {
+    "question": "O que será exibido pelo código:\n```python\nx = 8\nx //= 3\nprint(x)\n```\n?",
+    "options": [
+      "2",
+      "3",
+      "2.66",
+      "8"
+    ],
+    "answer": "2",
+    "explanation": "O operador `//=` realiza divisão inteira e atribui o resultado à variável. `8 // 3` resulta em `2`, pois a parte decimal é descartada."
+  },
+  {
+    "question": "Qual é o resultado de `list('abc')`?",
+    "options": [
+      "['a', 'b', 'c']",
+      "['abc']",
+      "'abc'",
+      "Erro"
+    ],
+    "answer": "['a', 'b', 'c']",
+    "explanation": "A função `list()` converte uma string em uma lista, onde cada caractere da string se torna um elemento da lista."
+  },
+  {
+    "question": "O que faz o comando `continue` em um loop?",
+    "options": [
+      "Para o programa",
+      "Sai do loop imediatamente",
+      "Pula para a próxima iteração",
+      "Reinicia o loop"
+    ],
+    "answer": "Pula para a próxima iteração",
+    "explanation": "O comando `continue` faz o loop pular o restante do código na iteração atual e ir para a próxima iteração."
+  },
+  {
+    "question": "O que será exibido pelo código:\n```python\nx = [1, 2, 3]\nprint(x[-1])\n```\n?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "Erro"
+    ],
+    "answer": "3",
+    "explanation": "O índice `-1` acessa o último elemento de uma lista. Para `x = [1, 2, 3]`, `x[-1]` é `3`."
+  },
+  {
+    "question": "Qual é o resultado de `str(123)`?",
+    "options": [
+      "123",
+      "'123'",
+      "[1, 2, 3]",
+      "Erro"
+    ],
+    "answer": "'123'",
+    "explanation": "A função `str()` converte um número (ou outro objeto) em uma string. Assim, `123` se torna `'123'`."
+  },
+  {
+    "question": "O que será exibido pelo código:\n```python\nfor i in range(1, 4, 2):\n    print(i, end=' ')\n```\n?",
+    "options": [
+      "1 2 3",
+      "1 3",
+      "1 2",
+      "2 4"
+    ],
+    "answer": "1 3",
+    "explanation": "`range(1, 4, 2)` gera números de 1 até (mas não incluindo) 4, com passo 2. Assim, os números são `1` e `3`."
+  },
+  {
+    "question": "O que será exibido pelo código:\n```python\nx = False\nx = x or True\nprint(x)\n```\n?",
+    "options": [
+      "True",
+      "False",
+      "None",
+      "Erro"
+    ],
+    "answer": "True",
+    "explanation": "O operador `or` retorna `True` se pelo menos uma das operandos for `True`. `False or True` resulta em `True`."
+  },
+  {
+    "question": "Qual método adiciona um elemento no início de uma lista?",
+    "options": [
+      "append()",
+      "insert()",
+      "add()",
+      "extend()"
+    ],
+    "answer": "insert()",
+    "explanation": "O método `insert(index, elemento)` adiciona um elemento na posição especificada. Para o início, usa-se `insert(0, elemento)`."
+  },
+  {
+    "question": "Qual é o resultado de `5 == '5'`?",
+    "options": [
+      "True",
+      "False",
+      "None",
+      "Erro"
+    ],
+    "answer": "False",
+    "explanation": "O operador `==` compara valores e tipos. `5` (inteiro) é diferente de `'5'` (string), então o resultado é `False`."
+  },
+  {
+    "question": "O que será exibido pelo código:\n```python\nd = {'x': 10}\nprint(d.get('y', 0))\n```\n?",
+    "options": [
+      "10",
+      "0",
+      "None",
+      "KeyError"
+    ],
+    "answer": "0",
+    "explanation": "O método `get(chave, default)` retorna o valor da chave se ela existir, caso contrário, retorna o valor padrão. Como `'y'` não existe, retorna `0`."
+  },
+  {
+    "question": "O que faz o método `upper()` em uma string?",
+    "options": [
+      "Converte para minúsculas",
+      "Converte para maiúsculas",
+      "Remove espaços",
+      "Inverte a string"
+    ],
+    "answer": "Converte para maiúsculas",
+    "explanation": "O método `upper()` converte todos os caracteres de uma string para letras maiúsculas."
+  },
+  {
+    "question": "Qual é o resultado de `bool([0])`?",
+    "options": [
+      "True",
+      "False",
+      "None",
+      "Erro"
+    ],
+    "answer": "True",
+    "explanation": "Uma lista não vazia, mesmo contendo `0`, é considerada `True` em um contexto booleano."
+  },
+  {
+    "question": "O que será exibido pelo código:\n```python\nx = 4\nprint(x / 2)\n```\n?",
+    "options": [
+      "2",
+      "2.0",
+      "4",
+      "Erro"
+    ],
+    "answer": "2.0",
+    "explanation": "O operador `/` realiza divisão com resultado em ponto flutuante. `4 / 2` resulta em `2.0`."
+  },
+  {
+    "question": "Qual palavra-chave é usada para capturar uma exceção em Python?",
+    "options": [
+      "try",
+      "except",
+      "catch",
+      "finally"
+    ],
+    "answer": "except",
+    "explanation": "A palavra-chave `except` é usada para capturar e tratar exceções levantadas em um bloco `try`."
+  },
+  {
+    "question": "Qual é o resultado de `(1, 2, 3)[1]`?",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "Erro"
+    ],
+    "answer": "2",
+    "explanation": "O índice `[1]` acessa o segundo elemento da tupla `(1, 2, 3)`, que é `2`."
+  },
+  {
+    "question": "O que será exibido pelo código:\n```python\nx = {1, 2, 2}\nprint(len(x))\n```\n?",
+    "options": [
+      "2",
+      "3",
+      "1",
+      "Erro"
+    ],
+    "answer": "2",
+    "explanation": "Um conjunto (`set`) não permite elementos duplicados. `{1, 2, 2}` é reduzido a `{1, 2}`, e `len()` retorna `2`."
+  },
+  {
+    "question": "Qual operador realiza divisão inteira em Python?",
+    "options": [
+      "/",
+      "//",
+      "%",
+      "**"
+    ],
+    "answer": "//",
+    "explanation": "O operador `//` realiza divisão inteira, retornando o quociente sem a parte decimal."
+  },
+  {
+    "question": "O que será exibido pelo código:\n```python\nx = 'hello'\nprint(x[1:3])\n```\n?",
+    "options": [
+      "he",
+      "el",
+      "ll",
+      "lo"
+    ],
+    "answer": "el",
+    "explanation": "O fatiamento `[1:3]` extrai os caracteres do índice 1 até (mas não incluindo) o índice 3, resultando em `'el'`."
+  },  
+  {
+    "question": "Qual é o resultado de `max([3, 1, 4, 1, 5])`?",
+    "options": [
+      "3",
+      "4",
+      "5",
+      "Erro"
+    ],
+    "answer": "5",
+    "explanation": "A função `max()` retorna o maior valor em um iterável. Para `[3, 1, 4, 1, 5]`, o maior valor é `5`."
+  },
+  {
+    "question": "O que será exibido pelo código:\n```python\nx = 0\nwhile x < 2:\n    print(x, end=' ')\n    x += 1\n```\n?",
+    "options": [
+      "0 1",
+      "0 1 2",
+      "1 2",
+      "Erro"
+    ],
+    "answer": "0 1",
+    "explanation": "O loop `while` executa enquanto `x < 2`, imprimindo `0` e `1`. O `end=' '` adiciona um espaço após cada número."
+  },
+  {
+    "question": "Qual é o tipo de dado retornado por `range(5)`?",
+    "options": [
+      "list",
+      "tuple",
+      "range",
+      "set"
+    ],
+    "answer": "range",
+    "explanation": "Em Python 3, `range(5)` retorna um objeto do tipo `range`, não uma lista. Pode ser convertido em lista com `list(range(5))`."
+  },
+  {
+    "question": "Qual é o resultado de `'a' in 'cat'`?",
+    "options": [
+      "True",
+      "False",
+      "None",
+      "Erro"
+    ],
+    "answer": "True",
+    "explanation": "O operador `in` verifica se `'a'` está na string `'cat'`. Como `'a'` está presente, o resultado é `True`."
+  },
+  {
+    "question": "O que será exibido pelo código:\n```python\nx = [1, 2]\nx.extend([3, 4])\nprint(x)\n```\n?",
+    "options": [
+      "[1, 2, 3, 4]",
+      "[1, 2, [3, 4]]",
+      "[1, 2]",
+      "Erro"
+    ],
+    "answer": "[1, 2, 3, 4]",
+    "explanation": "O método `extend()` adiciona cada elemento do iterável fornecido ao final da lista."
+  },
+  {
+    "question": "O que será exibido pelo código:\n```python\nx = 3\nx *= 2\nprint(x)\n```\n?",
+    "options": [
+      "5",
+      "6",
+      "9",
+      "Erro"
+    ],
+    "answer": "6",
+    "explanation": "O operador `*=` multiplica a variável pelo valor à direita. `x *= 2` é equivalente a `x = x * 2`, então `3 * 2 = 6`."
+  },
+  {
+    "question": "O que será exibido pelo código:\n```python\nx = None\nprint(x)\n```\n?",
+    "options": [
+      "None",
+      "'None'",
+      "0",
+      "Erro"
+    ],
+    "answer": "None",
+    "explanation": "A variável `x` contém o valor `None`, que é impresso como `None`."
+  },
+  {
+    "question": "Qual método retorna o número de ocorrências de um elemento em uma lista?",
+    "options": [
+      "count()",
+      "len()",
+      "find()",
+      "index()"
+    ],
+    "answer": "count()",
+    "explanation": "O método `count()` retorna quantas vezes um elemento aparece em uma lista."
+  },
+  {
+    "question": "Qual é o resultado de `int('123')`?",
+    "options": [
+      "'123'",
+      "123",
+      "123.0",
+      "Erro"
+    ],
+    "answer": "123",
+    "explanation": "A função `int()` converte uma string que representa um número inteiro em um valor inteiro."
+  },
+  {
+    "question": "O que será exibido pelo código:\n```python\nif 5 > 3:\n    print('Sim')\n```\n?",
+    "options": [
+      "Sim",
+      "Não",
+      "None",
+      "Erro"
+    ],
+    "answer": "Sim",
+    "explanation": "A condição `5 > 3` é `True`, então o bloco `if` é executado, imprimindo `'Sim'`."
+  },
+  {
+    "question": "Qual é o resultado de `{1: 'a', 2: 'b'}[2]`?",
+    "options": [
+      "'a'",
+      "'b'",
+      "2",
+      "KeyError"
+    ],
+    "answer": "'b'",
+    "explanation": "O acesso `[2]` retorna o valor associado à chave `2` no dicionário, que é `'b'`."
+  },    
+  {
     "question": "Qual é o resultado da seguinte expressão: `3 * 'ab'`?",
     "options": [
       "ababab",
