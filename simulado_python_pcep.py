@@ -1634,6 +1634,33 @@ custom_css = f"""
     margin-top: 0 !important;
     }}
 
+    /* ----------------------------- FORMULÁRIO DE CADASTRO ----------------------------- */
+    div[data-testid="stForm"] {{
+        border: 1px solid {secondary_color};
+        border-radius: 10px;
+        padding: 1rem 1rem 0.5rem 1rem;
+    }}
+    body[data-theme="dark"] div[data-testid="stForm"] {{
+        border-color: #4A5464 !important;
+    }}
+
+    /* ----------------------------- DATAFRAME (RANKING) ----------------------------- */
+    /* Cor de fundo da linha ao passar o mouse (hover) */
+    div[data-testid="stDataFrame"] .glide-table-body .glide-row:hover {{
+        background-color: #E7F1FF !important;
+    }}
+    /* Cor do texto da linha ao passar o mouse (hover) */
+    div[data-testid="stDataFrame"] .glide-table-body .glide-row:hover .glide-cell {{
+        color: #000000 !important;
+    }}
+    /* Tema Dark para o DataFrame */
+    body[data-theme="dark"] div[data-testid="stDataFrame"] .glide-table-body .glide-row:hover {{
+        background-color: #2C3440 !important;
+    }}
+    body[data-theme="dark"] div[data-testid="stDataFrame"] .glide-table-body .glide-row:hover .glide-cell {{
+        color: #FAFAFA !important;
+    }}
+
     /* ----------------------------- RADIO ----------------------------- */
     .stRadio > label p {{
         font-size: 1.05em !important;
@@ -2304,7 +2331,7 @@ st.markdown(
               </a>         
           </div>  
           <div class="linha"> <br> </div>
-          <div class="linha">⚙️ <b>Versão:</b> 3.0.0</div> 
+          <div class="linha">⚙️ <b>Versão:</b> 2.9.0</div> 
           <div class="linha">🗓️ <b>Build:</b> {data_atual}</div>        
       </div>
     </div>
