@@ -1,57 +1,35 @@
 [
-    {
-        "name": "Pedro",
-        "email": "",
-        "city": "Brasília",
-        "country": "Brasil",
-        "score": 25,
-        "questions_answered": 30,
-        "time_seconds": 1500,
-        "date": "21-06-2025 21:42",
-        "total_questions": 30
-    },
-    {
-        "name": "Maria",
-        "email": "",
-        "city": "São Paulo",
-        "country": "Brasil",
-        "score": 20,
-        "questions_answered": 25,
-        "time_seconds": 1800,
-        "date": "21-06-2025 21:45",
-        "total_questions": 30
-    },
-    {
-        "name": "John",
-        "email": "",
-        "city": "New York",
-        "country": "USA",
-        "score": 15,
-        "questions_answered": 20,
-        "time_seconds": 2000,
-        "date": "21-06-2025 21:55",
-        "total_questions": 30
-    },
-    {
-        "name": "Fantasma",
-        "email": "",
-        "city": "",
-        "country": "",
-        "score": 0,
-        "questions_answered": 0,
-        "time_seconds": 2,
-        "date": "21-06-2025 22:02",
-        "total_questions": 30
-    },
-    {
-        "name": "Fantasma",
-        "email": "",
-        "city": "",
-        "country": "",
-        "score": 0,
-        "questions_answered": 0,
-        "time_seconds": 129,
-        "date": "21-06-2025 22:06",
-        "total_questions": 30
-    }
+  {
+    "name": "Pedro",
+    "email": "",
+    "city": "Brasília",
+    "country": "Brasil",
+    "score": 25,
+    "questions_answered": 30,
+    "time_seconds": 1500,
+    "date": "21-06-2025 21:42",
+    "total_questions": 30
+  },
+  {
+    "name": "Maria",
+    "email": "",
+    "city": "São Paulo",
+    "country": "Brasil",
+    "score": 20,
+    "questions_answered": 25,
+    "time_seconds": 1800,
+    "date": "21-06-2025 21:45",
+    "total_questions": 30
+  },
+  {
+    "name": "John",
+    "email": "",
+    "city": "New York",
+    "country": "USA",
+    "score": 15,
+    "questions_answered": 20,
+    "time_seconds": 2000,
+    "date": "21-06-2025 21:55",
+    "total_questions": 30
+  }
 ]
