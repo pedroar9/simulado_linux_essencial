@@ -2,7 +2,10 @@ import streamlit as st
 import random
 import time
 import re
-from datetime import date
+import json
+import os
+import pandas as pd
+from datetime import date, datetime
 
 data_atual = date.today().strftime("%d/%m/%Y")
 
@@ -1877,6 +1880,8 @@ NUM_QUESTIONS_PER_QUIZ = 30
 QUIZ_TIME_LIMIT_MINUTES = 45
 PASSING_PERCENTAGE = 70
 
+RANKING_FILE = 'ranking.json'
+
 # --- Funções ---
 def initialize_quiz_session():
     if len(questions_data) >= NUM_QUESTIONS_PER_QUIZ:
@@ -1894,6 +1899,42 @@ def initialize_quiz_session():
     st.session_state.quiz_completed = False
     st.session_state.quiz_start_time = 0.0
     st.session_state.time_up = False
+    st.session_state.ranking_updated = False
+    # Não limpa user_info para que o usuário continue logado para novas tentativas
+    if "user_info" not in st.session_state:
+        st.session_state.user_info = {}
+
+def load_ranking():
+    if not os.path.exists(RANKING_FILE):
+        return []
+    try:
+        with open(RANKING_FILE, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except (json.JSONDecodeError, FileNotFoundError):
+        return []
+
+def save_ranking(ranking_data):
+    with open(RANKING_FILE, 'w', encoding='utf-8') as f:
+        json.dump(ranking_data, f, indent=4, ensure_ascii=False)
+
+def add_to_ranking(user_data, score, time_seconds, total_questions_quiz, questions_answered):
+    ranking = load_ranking()
+    new_entry = {
+        "name": user_data.get("name", "Fantasma"),
+        "email": user_data.get("email", ""),
+        "city": user_data.get("city", ""),
+        "country": user_data.get("country", ""),
+        "score": score,
+        "questions_answered": questions_answered,
+        "time_seconds": int(time_seconds),
+        "date": datetime.now().strftime("%d-%m-%Y %H:%M"),
+        "total_questions": total_questions_quiz # Armazena o total de questões do quiz
+    }
+    ranking.append(new_entry)
+    # Ordena por pontos (desc) e depois por tempo (asc)
+    ranking.sort(key=lambda x: (-x['score'], x['time_seconds']))
+    top_10 = ranking[:10]
+    save_ranking(top_10)
 
 def display_question(question_data, current_idx, total_questions):
     # Título geral do simulado
@@ -1988,12 +2029,39 @@ def display_timer_and_handle_timeout():
             unsafe_allow_html=True
         )
 
+        display_ranking_sidebar()
         time.sleep(1)
         st.rerun()
+
+def display_ranking_sidebar():
+    st.sidebar.markdown("<div style='margin-top: 20px;'></div>", unsafe_allow_html=True)
+    with st.sidebar.expander("🏆 Top 10 Ranking", expanded=False):
+        ranking_data = load_ranking()
+        if not ranking_data:
+            st.write("O ranking ainda está vazio. Seja o primeiro a pontuar!")
+        else:
+            # Calcula a porcentagem para cada entrada
+            for entry in ranking_data:
+                total_q = entry.get('total_questions', NUM_QUESTIONS_PER_QUIZ) # Usa NUM_QUESTIONS_PER_QUIZ como fallback
+                entry['percentage'] = (entry['score'] / total_q) * 100 if total_q > 0 else 0
+
+            df = pd.DataFrame(ranking_data)
+            # Formata o tempo para exibição
+            df['Tempo'] = df['time_seconds'].apply(lambda s: f"{int(s // 60):02d}:{int(s % 60):02d}")
+            # Formata a porcentagem para exibição
+            df['Porcentagem'] = df['percentage'].apply(lambda p: f"{int(p)}%")
+            # Seleciona e renomeia colunas para exibição
+            df_display = df[['name', 'Porcentagem', 'Tempo', 'city', 'country']]
+            df_display.columns = ["Nome", "Acerto", "Tempo", "Cidade", "País"]
+            # Define o índice para começar em 1 (para o ranking)
+            df_display.index = range(1, len(df_display) + 1)
+            st.dataframe(df_display, use_container_width=True)
 
 def show_results_page():
     score = st.session_state.score
     total = st.session_state.total_quiz_questions
+    final_time_seconds = time.time() - st.session_state.quiz_start_time
+    user_info = st.session_state.get("user_info", {})
     pct = (score / total) * 100 if total > 0 else 0
 
     if pct >= PASSING_PERCENTAGE:
@@ -2003,6 +2071,14 @@ def show_results_page():
 
     if st.session_state.get("time_up", False):
         st.warning("⏰ Seu tempo para o quiz esgotou!")
+
+    # Garante que o ranking seja atualizado apenas uma vez por quiz
+    if not st.session_state.get("ranking_updated", False):
+        questions_answered = sum(1 for answer in st.session_state.user_answers if answer is not None)
+        add_to_ranking(user_info, score, final_time_seconds, total, questions_answered)
+        st.session_state.ranking_updated = True
+
+    display_ranking_sidebar()
 
     st.markdown(f"<p class='score-display'>Você acertou {score} de {total} questões. ({pct:.1f}%)</p>", unsafe_allow_html=True)
     
@@ -2085,7 +2161,22 @@ Este simulado é baseado na prova oficial **PCEP™ – Certified Entry-Level Py
 
 """)
     
-    
+    display_ranking_sidebar() # Exibe o ranking na página inicial
+    with st.expander("👤 Cadastro para o Top 10 Ranking (Opcional)"):
+        with st.form("registration_form"):
+            name = st.text_input("Nome")
+            email = st.text_input("Email")
+            city = st.text_input("Cidade")
+            country = st.text_input("País")
+            submitted = st.form_submit_button("Salvar Cadastro")
+            if submitted and name: # Nome é obrigatório para o cadastro
+                st.session_state.user_info = {
+                    "name": name, "email": email, "city": city, "country": country
+                }
+                st.success(f"Olá, {name}! Você está cadastrado para o ranking.")
+
+    if st.session_state.get("user_info", {}).get("name"):
+        st.info(f"✅ Logado como **{st.session_state.user_info['name']}**. Seu resultado será registrado no ranking se estiver no Top 10.")
 
     if st.button("🚀 Iniciar Simulado"):
         st.session_state.quiz_started = True
@@ -2213,7 +2304,7 @@ st.markdown(
               </a>         
           </div>  
           <div class="linha"> <br> </div>
-          <div class="linha">⚙️ <b>Versão:</b> 2.4.1</div> 
+          <div class="linha">⚙️ <b>Versão:</b> 3.0.0</div> 
           <div class="linha">🗓️ <b>Build:</b> {data_atual}</div>        
       </div>
     </div>
