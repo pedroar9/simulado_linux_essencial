@@ -33,6 +33,17 @@
         "total_questions": 30
     },
     {
+        "name": "Anônimo",
+        "email": "",
+        "city": "",
+        "country": "",
+        "score": 13,
+        "questions_answered": 15,
+        "time_seconds": 129,
+        "date": "22-06-2025 13:33",
+        "total_questions": 30
+    },
+    {
         "name": "Alice",
         "email": "",
         "city": "London",

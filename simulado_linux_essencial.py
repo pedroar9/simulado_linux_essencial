@@ -17,6 +17,336 @@ data_atual = agora.today().strftime("%d/%m/%Y")
 # --- Questions Data ---
 questions_data = [
     {
+        "question": "Qual comando é usado para agendar tarefas para execução única?",
+        "options": ["at", "cron", "schedule", "task"],
+        "answer": "at",
+        "explanation": "`at` permite agendar uma tarefa única para ser executada em um momento específico."
+    },
+    {
+        "question": "Qual comando atualiza o banco de dados usado pelo `locate`?",
+        "options": ["updatedb", "locate --update", "refreshdb", "dbupdate"],
+        "answer": "updatedb",
+        "explanation": "`updatedb` atualiza o banco de dados de arquivos usado pelo comando `locate`."
+    },
+    {
+        "question": "Qual arquivo armazena informações sobre os sistemas de arquivos montados?",
+        "options": ["/etc/mtab", "/etc/fstab", "/proc/mounts", "/var/mounts"],
+        "answer": "/etc/mtab",
+        "explanation": "`/etc/mtab` lista os sistemas de arquivos atualmente montados no sistema."
+    },
+    {
+        "question": "Qual comando é usado para listar os módulos carregados no kernel?",
+        "options": ["lsmod", "modinfo", "insmod", "modules"],
+        "answer": "lsmod",
+        "explanation": "`lsmod` mostra os módulos do kernel carregados atualmente."
+    },
+    {
+        "question": "Qual comando é usado para adicionar um grupo?",
+        "options": ["groupadd", "addgroup", "newgroup", "mkgroup"],
+        "answer": "groupadd",
+        "explanation": "`groupadd` cria um novo grupo no sistema."
+    },
+    {
+        "question": "Qual comando permite visualizar a utilização do espaço por diretório?",
+        "options": ["du", "df", "diskuse", "usage"],
+        "answer": "du",
+        "explanation": "`du` mostra o uso de disco por diretórios e arquivos."
+    },
+    {
+        "question": "Qual comando altera o dono de um arquivo?",
+        "options": ["chown", "chmod", "usermod", "setowner"],
+        "answer": "chown",
+        "explanation": "`chown` altera o dono (usuário e grupo) de arquivos e diretórios."
+    },
+    {
+        "question": "Qual comando altera permissões de arquivos?",
+        "options": ["chmod", "chown", "setperm", "perm"],
+        "answer": "chmod",
+        "explanation": "`chmod` define permissões de leitura, escrita e execução para arquivos e diretórios."
+    },
+    {
+        "question": "Qual comando mostra os processos em árvore?",
+        "options": ["pstree", "ps -tree", "top -t", "proctree"],
+        "answer": "pstree",
+        "explanation": "`pstree` exibe os processos em formato de árvore hierárquica."
+    },
+    {
+        "question": "Qual sinal é usado com `kill` para encerrar um processo normalmente?",
+        "options": ["15", "9", "1", "0"],
+        "answer": "15",
+        "explanation": "O sinal 15 (SIGTERM) é o padrão do `kill` e tenta terminar o processo de forma limpa."
+    },
+    {
+        "question": "Qual comando mostra os dispositivos de bloco disponíveis?",
+        "options": ["lsblk", "blkid", "fdisk -l", "mount"],
+        "answer": "lsblk",
+        "explanation": "`lsblk` lista todos os dispositivos de bloco como HDs e partições."
+    },
+    {
+        "question": "Qual diretório contém arquivos de configuração do sistema?",
+        "options": ["/etc", "/bin", "/opt", "/var"],
+        "answer": "/etc",
+        "explanation": "`/etc` armazena arquivos de configuração do sistema e dos serviços."
+    },
+    {
+        "question": "Qual comando é usado para verificar conectividade de rede?",
+        "options": ["ping", "netstat", "ss", "trace"],
+        "answer": "ping",
+        "explanation": "`ping` verifica a conectividade com outro host por meio de pacotes ICMP."
+    },
+    {
+        "question": "Qual comando exibe a rota de pacotes até um destino?",
+        "options": ["traceroute", "tracepath", "route", "ip route"],
+        "answer": "traceroute",
+        "explanation": "`traceroute` mostra o caminho que os pacotes percorrem até o destino."
+    },
+    {
+        "question": "Qual comando mostra estatísticas de uso da memória?",
+        "options": ["free", "top", "vmstat", "mem"],
+        "answer": "free",
+        "explanation": "`free` exibe a quantidade de memória usada, livre e buffers/cache."
+    },
+    {
+        "question": "Qual arquivo armazena informações de usuários no sistema?",
+        "options": ["/etc/passwd", "/etc/shadow", "/etc/group", "/etc/login"],
+        "answer": "/etc/passwd",
+        "explanation": "`/etc/passwd` contém os dados básicos de todas as contas de usuário."
+    },
+    {
+        "question": "Qual arquivo armazena senhas criptografadas dos usuários?",
+        "options": ["/etc/shadow", "/etc/passwd", "/etc/secure", "/etc/security"],
+        "answer": "/etc/shadow",
+        "explanation": "`/etc/shadow` contém senhas criptografadas e outras informações de segurança dos usuários."
+    },
+    {
+        "question": "Qual comando compacta arquivos no formato gzip?",
+        "options": ["gzip", "zip", "tar -z", "compress"],
+        "answer": "gzip",
+        "explanation": "`gzip` comprime arquivos usando o algoritmo GNU zip."
+    },
+    {
+        "question": "Qual comando descompacta arquivos `.zip`?",
+        "options": ["unzip", "gunzip", "tar -x", "zip -d"],
+        "answer": "unzip",
+        "explanation": "`unzip` extrai arquivos do formato `.zip`."
+    },
+    {
+        "question": "Qual comando é usado para criar diretórios?",
+        "options": ["mkdir", "makedir", "md", "newdir"],
+        "answer": "mkdir",
+        "explanation": "`mkdir` cria novos diretórios no sistema."
+    },
+    {
+        "question": "Qual comando move arquivos para outro diretório?",
+        "options": ["mv", "move", "cp -m", "transfer"],
+        "answer": "mv",
+        "explanation": "`mv` move arquivos e diretórios para outro local, podendo também renomear."
+    },
+    {
+        "question": "Qual comando copia arquivos?",
+        "options": ["cp", "copy", "mv -c", "duplicate"],
+        "answer": "cp",
+        "explanation": "`cp` copia arquivos e diretórios para outro local."
+    },
+    {
+        "question": "Qual comando mostra o caminho completo do comando executável?",
+        "options": ["which", "whereis", "find", "path"],
+        "answer": "which",
+        "explanation": "`which` mostra o caminho completo do comando que será executado."
+    },
+    {
+        "question": "Qual comando mostra informações sobre um comando ou binário?",
+        "options": ["file", "info", "man", "help"],
+        "answer": "file",
+        "explanation": "`file` mostra o tipo de um arquivo, incluindo se é binário ou script."
+    },
+    {
+        "question": "Qual variável armazena os diretórios onde o sistema busca comandos?",
+        "options": ["PATH", "HOME", "SHELL", "BIN"],
+        "answer": "PATH",
+        "explanation": "`PATH` define os diretórios onde o shell procura por comandos executáveis."
+    },
+    {
+        "question": "Qual comando mostra o histórico de comandos usados?",
+        "options": ["history", "log", "past", "commands"],
+        "answer": "history",
+        "explanation": "`history` lista os comandos digitados anteriormente no terminal."
+    },
+    {
+        "question": "O que faz o comando `logout`?",
+        "options": ["Reinicia o sistema", "Encerra a sessão do usuário", "Desconecta a rede", "Sai do terminal"],
+        "answer": "Encerra a sessão do usuário",
+        "explanation": "`logout` finaliza a sessão atual do terminal para o usuário logado."
+    },
+    {
+        "question": "Qual comando lista os grupos do usuário atual?",
+        "options": ["groups", "whoami", "id", "getent"],
+        "answer": "groups",
+        "explanation": "`groups` exibe todos os grupos aos quais o usuário atual pertence."
+    },
+    {
+        "question": "Qual comando pode ser usado para monitorar tempo real da performance do sistema?",
+        "options": ["top", "uptime", "ps", "monitor"],
+        "answer": "top",
+        "explanation": "`top` mostra os processos em tempo real com uso de CPU, memória e mais."
+    },
+    {
+        "question": "O que representa o diretório `/var`?",
+        "options": ["Arquivos temporários", "Variáveis do sistema", "Arquivos mutáveis", "Bibliotecas"],
+        "answer": "Arquivos mutáveis",
+        "explanation": "`/var` contém arquivos que mudam constantemente como logs e filas de impressão."
+    },
+    {
+        "question": "Qual arquivo define variáveis de ambiente de sessão de login bash?",
+        "options": ["~/.bash_profile", "~/.profile", "~/.bashrc", "~/.env"],
+        "answer": "~/.bash_profile",
+        "explanation": "`~/.bash_profile` é lido no login de shells interativos para definir variáveis de ambiente."
+    },
+    {
+        "question": "O que representa o diretório `/bin`?",
+        "options": ["Binários do sistema", "Bibliotecas", "Backups", "Base de dados"],
+        "answer": "Binários do sistema",
+        "explanation": "`/bin` contém comandos essenciais disponíveis para todos os usuários."
+    },
+    {
+        "question": "Qual comando cria um novo usuário?",
+        "options": ["useradd", "adduser", "newuser", "createuser"],
+        "answer": "useradd",
+        "explanation": "`useradd` adiciona um novo usuário ao sistema."
+    },
+    {
+        "question": "O que o comando `alias` faz?",
+        "options": ["Cria atalhos de comandos", "Cria arquivos", "Muda usuários", "Edita scripts"],
+        "answer": "Cria atalhos de comandos",
+        "explanation": "`alias` permite criar apelidos para comandos longos ou personalizados."
+    },
+    {
+        "question": "Qual comando lista o conteúdo de diretórios de forma detalhada?",
+        "options": ["ls -l", "dir -a", "ls -d", "list"],
+        "answer": "ls -l",
+        "explanation": "`ls -l` mostra os detalhes como permissões, dono, tamanho e data dos arquivos."
+    },
+    {
+        "question": "O que representa o diretório `/home`?",
+        "options": ["Arquivos do sistema", "Contas de usuários", "Configurações de rede", "Bibliotecas compartilhadas"],
+        "answer": "Contas de usuários",
+        "explanation": "`/home` contém os diretórios pessoais dos usuários do sistema."
+    },
+    {
+        "question": "Qual comando verifica a integridade de um arquivo com hash?",
+        "options": ["md5sum", "sha256", "hash", "check"],
+        "answer": "md5sum",
+        "explanation": "`md5sum` gera ou compara o hash MD5 de arquivos para verificar integridade."
+    },
+    {
+        "question": "Qual comando é usado para remover diretórios vazios?",
+        "options": ["rmdir", "rm -d", "deletedir", "rm -rf"],
+        "answer": "rmdir",
+        "explanation": "`rmdir` remove diretórios apenas se estiverem vazios."
+    },
+    {
+        "question": "Qual comando mostra a hora atual de forma legível?",
+        "options": ["date", "clock", "time", "calendar"],
+        "answer": "date",
+        "explanation": "`date` exibe a data e hora atual no formato configurado do sistema."
+    },
+    {
+        "question": "Qual comando altera informações de um usuário?",
+        "options": ["usermod", "useredit", "passwd", "edituser"],
+        "answer": "usermod",
+        "explanation": "`usermod` é utilizado para modificar contas de usuário já existentes."
+    },
+    {
+        "question": "Qual comando é usado para mostrar a identidade do usuário atual?",
+        "options": ["id", "whoami", "user", "who"],
+        "answer": "whoami",
+        "explanation": "`whoami` retorna o nome do usuário atualmente logado no terminal."
+    },
+    {
+        "question": "Qual comando exibe o tempo que o sistema está ativo?",
+        "options": ["uptime", "time", "status", "boot"],
+        "answer": "uptime",
+        "explanation": "`uptime` mostra há quanto tempo o sistema está em funcionamento."
+    },
+    {
+        "question": "Qual comando mostra o espaço disponível em disco em formato legível?",
+        "options": ["df -h", "du -s", "disk -l", "space"],
+        "answer": "df -h",
+        "explanation": "`df -h` exibe as partições com o espaço disponível de forma legível (em MB/GB)."
+    },
+    {
+        "question": "Qual diretório armazena arquivos temporários no Linux?",
+        "options": ["/tmp", "/var/tmp", "/etc/tmp", "/usr/tmp"],
+        "answer": "/tmp",
+        "explanation": "`/tmp` é usado para armazenar arquivos temporários acessíveis a todos os usuários."
+    },
+    {
+        "question": "Qual comando é usado para comparar dois arquivos de texto?",
+        "options": ["diff", "cmp", "comm", "compare"],
+        "answer": "diff",
+        "explanation": "`diff` exibe as diferenças linha a linha entre dois arquivos."
+    },
+    {
+        "question": "Qual comando é usado para reiniciar o sistema?",
+        "options": ["reboot", "restart", "shutdown -r", "powercycle"],
+        "answer": "reboot",
+        "explanation": "`reboot` reinicia o sistema imediatamente."
+    },
+    {
+        "question": "Qual comando é utilizado para extrair arquivos `.tar.gz`?",
+        "options": ["tar -xvzf", "gzip -d", "untar", "extract"],
+        "answer": "tar -xvzf",
+        "explanation": "`tar -xvzf` extrai arquivos compactados no formato `.tar.gz`."
+    },
+    {
+        "question": "Qual comando é usado para alterar a prioridade de processos?",
+        "options": ["nice", "priority", "renice", "ps"],
+        "answer": "renice",
+        "explanation": "`renice` ajusta a prioridade de processos em execução."
+    },
+    {
+        "question": "Qual comando busca arquivos no sistema de forma indexada?",
+        "options": ["locate", "find", "grep", "which"],
+        "answer": "locate",
+        "explanation": "`locate` busca arquivos rapidamente usando um banco de dados atualizado com `updatedb`."
+    },
+    {
+        "question": "O que faz o comando `clear` no terminal?",
+        "options": ["Encerra processos", "Limpa a tela", "Apaga arquivos", "Limpa variáveis"],
+        "answer": "Limpa a tela",
+        "explanation": "`clear` limpa o conteúdo visível do terminal."
+    },
+    {
+        "question": "Qual comando exibe a árvore de diretórios?",
+        "options": ["tree", "ls -R", "dir -t", "map"],
+        "answer": "tree",
+        "explanation": "`tree` exibe os diretórios e subdiretórios em forma de árvore hierárquica."
+    },
+    {
+        "question": "Qual comando é usado para acessar outra conta de usuário?",
+        "options": ["sudo", "login", "useradd", "su"],
+        "answer": "su",
+        "explanation": "`su` permite mudar para outro usuário no terminal, geralmente usado para `root`."
+    },
+    {
+        "question": "O que o comando `uname -a` exibe?",
+        "options": ["Usuário atual", "Versão do kernel", "Sistema de arquivos", "Todos os processos"],
+        "answer": "Versão do kernel",
+        "explanation": "`uname -a` mostra informações completas sobre o sistema e o kernel."
+    },
+    {
+        "question": "O que significa o caractere `.` em um caminho de arquivo?",
+        "options": ["Diretório raiz", "Diretório pai", "Diretório atual", "Diretório home"],
+        "answer": "Diretório atual",
+        "explanation": "O ponto `.` representa o diretório atual."
+    },
+    {
+        "question": "Qual diretório contém informações do sistema em tempo real como processos?",
+        "options": ["/proc", "/dev", "/etc", "/sys"],
+        "answer": "/proc",
+        "explanation": "`/proc` é um sistema de arquivos virtual com informações sobre processos e kernel."
+    },
+    {
         "question": "Qual comando exibe informações sobre o uso de disco do sistema?",
         "options": ["df", "du", "lsblk", "mount"],
         "answer": "df",
@@ -251,12 +581,12 @@ custom_css = f"""
 
     .stButton>button[kind="secondary"], 
     .stButton>button[kind="secondary"]:focus {{
-        background-color: #D3D3D3;
-        color: #333333;
+        background-color: #CDE2F5; /* Azul claro */
+        color: #144A7C; /* Azul escuro (texto) */
     }}
     .stButton>button[kind="secondary"]:hover {{
-        background-color: #BEBEBE;
-        color: #333333;
+        background-color: #B4D4F2;
+        color: #144A7C;
     }}
 
     /* Tema Dark */
@@ -272,13 +602,13 @@ custom_css = f"""
     }}
     .st-emotion-cache-13k62yr .stButton>button[kind="secondary"],
     body[color-scheme="dark"] .stButton>button[kind="secondary"]:focus {{
-        background-color: #555555;
-        color: #E0E0E0;
+        background-color: #2C3E50; /* Azul ardósia escuro */
+        color: #AEC6CF; /* Azul-acinzentado claro (texto) */
     }}
     .st-emotion-cache-13k62yr .stButton>button[kind="secondary"]:hover,
     body[color-scheme="dark"] .stButton>button[kind="secondary"]:hover {{
-        background-color: #6E6E6E;
-        color: #E0E0E0;
+        background-color: #34495E;
+        color: #AEC6CF;
     }}
 
     .stButton {{
@@ -769,7 +1099,7 @@ def show_results_page():
     st.markdown(f"<p class='score-display'>Você acertou {score} de {total} questões. ({pct:.1f}%)</p>", unsafe_allow_html=True)
     
     if pct >= PASSING_PERCENTAGE:
-        st.success("✅ Parabéns! Você foi aprovado no simulado da certificação PCEP!")
+        st.success("✅ Parabéns! Você foi aprovado no simulado da certificação Linux Essencial!")
         st.balloons()  # balões só para APROVADOS
         st.markdown("<div class='centered-gif-mobile'>", unsafe_allow_html=True)
         st.image("https://imagens.net.br/wp-content/uploads/2024/06/os-melhores-gifs-de-parabens-para-qualquer-ocasiao-1.gif", width=300)
