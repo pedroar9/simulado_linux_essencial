@@ -1335,7 +1335,7 @@ if not st.session_state.quiz_started:
     """, unsafe_allow_html=True)
 
     st.markdown("""
-### 📢 Sobre a Certificação Linux Essentials🐧
+### 🐧 Sobre a Certificação Linux Essentials
                 
 Este simulado é baseado na prova oficial **Linux Essentials – LPI 010-160**, oferecida pela [LPI (Linux Professional Institute)](https://www.lpi.org/pt-br/our-certifications/linux-essentials-overview/).
 
