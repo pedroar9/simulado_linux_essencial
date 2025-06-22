@@ -8,6 +8,7 @@ import pandas as pd
 from datetime import date, datetime
 import pytz
 
+# --- Configuracoes de hora     ---  
 fuso_brasilia = pytz.timezone("America/Sao_Paulo")
 agora = datetime.now(fuso_brasilia)
 data_atual = agora.today().strftime("%d/%m/%Y")
@@ -1915,7 +1916,7 @@ RANKING_FILE = 'ranking.json'
 
 # --- Funções ---
 def initialize_quiz_session():
-    # Garante uma nova semente aleatória a cada inicialização para máxima variedade
+    # Garante uma nova semente aleatória a cada inicialização para máxima variedade das perguntas
     random.seed(time.time_ns())
 
     if len(questions_data) >= NUM_QUESTIONS_PER_QUIZ:
@@ -1934,7 +1935,7 @@ def initialize_quiz_session():
     st.session_state.quiz_start_time = 0.0
     st.session_state.time_up = False
     st.session_state.ranking_updated = False
-    # Não limpa user_info para que o usuário continue logado para novas tentativas
+    # Não limpa o user_info para que o usuário continue logado para novas tentativas
     if "user_info" not in st.session_state:
         st.session_state.user_info = {}
 
@@ -1962,7 +1963,7 @@ def add_to_ranking(user_data, score, time_seconds, total_questions_quiz, questio
         "questions_answered": questions_answered,
         "time_seconds": int(time_seconds),
         "date": datetime.now().strftime("%d-%m-%Y %H:%M"),
-        "total_questions": total_questions_quiz # Armazena o total de questões do quiz
+        "total_questions": total_questions_quiz 
     }
     ranking.append(new_entry)
     # Ordena por pontos (desc) e depois por tempo (asc)
