@@ -21,8 +21,6 @@ Ideal para dashboards, simulações, análises de dados e visualizações simple
 
 ---
 
-
-
 ## Configuração do Ambiente
 
 Para configurar o ambiente de desenvolvimento, siga os passos abaixo:
