@@ -1915,6 +1915,9 @@ RANKING_FILE = 'ranking.json'
 
 # --- Funções ---
 def initialize_quiz_session():
+    # Garante uma nova semente aleatória a cada inicialização para máxima variedade
+    random.seed(time.time_ns())
+
     if len(questions_data) >= NUM_QUESTIONS_PER_QUIZ:
         selected_questions = random.sample(questions_data, NUM_QUESTIONS_PER_QUIZ)
     else:
@@ -2335,7 +2338,7 @@ st.markdown(
               </a>         
           </div>  
           <div class="linha"> <br> </div>
-          <div class="linha">⚙️ <b>Versão:</b> 2.9.1</div> 
+          <div class="linha">⚙️ <b>Versão:</b> 3.0.0</div> 
           <div class="linha">🗓️ <b>Build:</b> {data_atual}</div>        
       </div>
     </div>
