@@ -677,12 +677,6 @@ questions_data = [
         "explanation": "`zcat` permite visualizar o conteúdo de arquivos compactados com gzip sem descompactá-los."
     },
     {
-        "question": "Qual comando é usado para comprimir arquivos com gzip?",
-        "options": ["zip", "compress", "gzip", "gz"],
-        "answer": "gzip",
-        "explanation": "`gzip` é usado para comprimir arquivos em formato `.gz`."
-    },
-    {
         "question": "Qual comando é usado para desligar o sistema?",
         "options": ["halt", "poweroff", "shutdown", "off"],
         "answer": "shutdown",
@@ -1318,7 +1312,7 @@ def show_results_page():
                     st.markdown("---")
             
             if not any_answered and st.session_state.questions_to_ask:
-              st.write("Você não respondeu a nenhuma questão.")
+                st.write("Você não respondeu a nenhuma questão.")
 
     if st.button("Reiniciar Simulado ♻️"):
         initialize_quiz_session()
@@ -1334,7 +1328,7 @@ if "questions_to_ask" not in st.session_state:
 if not st.session_state.quiz_started:
     st.markdown("""
         <div style="display: flex; align-items: center; gap: 12px;">
-            <img src="https://firebrand.training/media/nzgnw4md/linux-l.svg" width="65"/>
+            <img src="https://banner2.cleanpng.com/20180810/hat/9b00dbc356791a451a952bde71fbf4db.webp" alt="Linux Logo" width="65"/>
             <h1 style="margin: 0;">Simulado da certificação Linux Essentials</h1>
             <img src="https://www.certificacaolinux.com.br/wp-content/uploads/2019/04/linux-essentials.jpg.webp" alt="Linux Essentials Logo" width="65"/>
         </div>
