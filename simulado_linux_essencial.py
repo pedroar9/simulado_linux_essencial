@@ -17,554 +17,184 @@ data_atual = agora.today().strftime("%d/%m/%Y")
 # --- Questions Data ---
 questions_data = [
     {
-        "question": "Qual comando é usado para procurar padrões em arquivos?",
-        "options": [
-            "find",
-            "grep",
-            "locate",
-            "search"
-        ],
-        "answer": "grep",
-        "explanation": "`grep` busca padrões em arquivos ou na saída de outros comandos."
+        "question": "Qual comando exibe informações sobre o uso de disco do sistema?",
+        "options": ["df", "du", "lsblk", "mount"],
+        "answer": "df",
+        "explanation": "`df` mostra o espaço em disco utilizado e disponível nas partições montadas."
     },
     {
-        "question": "Qual comando é utilizado para listar usuários conectados no sistema?",
-        "options": [
-            "users",
-            "who",
-            "log",
-            "session"
-        ],
-        "answer": "who",
-        "explanation": "`who` mostra quem está conectado no sistema."
+        "question": "Qual comando compacta arquivos em um tarball?",
+        "options": ["tar", "zip", "archive", "bundle"],
+        "answer": "tar",
+        "explanation": "`tar` é utilizado para criar e extrair arquivos compactados do tipo tarball."
     },
     {
-        "question": "Qual comando é utilizado para ver as últimas linhas de um arquivo?",
-        "options": [
-            "tail",
-            "last",
-            "bottom",
-            "less"
-        ],
-        "answer": "tail",
-        "explanation": "`tail` exibe as últimas linhas de um arquivo, útil para logs."
+        "question": "Qual comando exibe o manual do sistema para um comando específico?",
+        "options": ["help", "man", "info", "doc"],
+        "answer": "man",
+        "explanation": "`man` mostra as páginas de manual para comandos e utilitários do sistema."
     },
     {
-        "question": "Qual comando é utilizado para ver as últimas linhas de um arquivo?",
-        "options": [
-            "tail",
-            "last",
-            "bottom",
-            "less"
-        ],
-        "answer": "tail",
-        "explanation": "`tail` exibe as últimas linhas de um arquivo, útil para logs."
+        "question": "Qual arquivo armazena informações de montagem automática no sistema?",
+        "options": ["/etc/fstab", "/etc/auto.conf", "/mnt/config", "/etc/mount"],
+        "answer": "/etc/fstab",
+        "explanation": "`/etc/fstab` define os sistemas de arquivos a serem montados automaticamente na inicialização."
     },
     {
-        "question": "O que faz o comando `man` no Linux?",
-        "options": [
-            "Executa comandos",
-            "Abre o manual de ajuda",
-            "Edita arquivos",
-            "Lista diretórios"
-        ],
-        "answer": "Abre o manual de ajuda",
-        "explanation": "`man` é usado para visualizar as páginas de manual de comandos no Linux."
+        "question": "O que faz o comando `ls`?",
+        "options": ["Remove arquivos", "Lista arquivos e diretórios", "Cria arquivos", "Move arquivos"],
+        "answer": "Lista arquivos e diretórios",
+        "explanation": "`ls` lista o conteúdo de diretórios."
     },
     {
-        "question": "Qual comando exibe a data e hora atuais no Linux?",
-        "options": [
-            "date",
-            "clock",
-            "time",
-            "now"
-        ],
-        "answer": "date",
-        "explanation": "O comando `date` mostra a data e a hora atual do sistema."
+        "question": "Qual diretório representa o ponto de montagem para dispositivos removíveis?",
+        "options": ["/media", "/mnt", "/run", "/dev"],
+        "answer": "/media",
+        "explanation": "`/media` é usado para montar automaticamente dispositivos como pendrives e HDs externos."
     },
     {
-        "question": "Qual comando é utilizado para listar usuários conectados no sistema?",
-        "options": [
-            "users",
-            "who",
-            "log",
-            "session"
-        ],
-        "answer": "who",
-        "explanation": "`who` mostra quem está conectado no sistema."
+        "question": "Qual comando é usado para ver o conteúdo de um arquivo texto?",
+        "options": ["cat", "ls", "cd", "touch"],
+        "answer": "cat",
+        "explanation": "`cat` exibe o conteúdo de arquivos no terminal."
     },
     {
-        "question": "Qual comando remove arquivos no Linux?",
-        "options": [
-            "del",
-            "erase",
-            "rm",
-            "remove"
-        ],
-        "answer": "rm",
-        "explanation": "`rm` é usado para excluir arquivos e diretórios no Linux."
+        "question": "Qual comando exibe o nome do diretório atual?",
+        "options": ["pwd", "cwd", "dir", "whereami"],
+        "answer": "pwd",
+        "explanation": "`pwd` mostra o caminho completo do diretório de trabalho atual."
     },
     {
-        "question": "Qual comando é usado para procurar padrões em arquivos?",
-        "options": [
-            "find",
-            "grep",
-            "locate",
-            "search"
-        ],
-        "answer": "grep",
-        "explanation": "`grep` busca padrões em arquivos ou na saída de outros comandos."
+        "question": "Qual comando é usado para obter permissões de superusuário temporariamente?",
+        "options": ["sudo", "su", "admin", "root"],
+        "answer": "sudo",
+        "explanation": "`sudo` permite executar comandos como superusuário de forma controlada."
     },
     {
-        "question": "Qual comando é utilizado para listar usuários conectados no sistema?",
-        "options": [
-            "users",
-            "who",
-            "log",
-            "session"
-        ],
-        "answer": "who",
-        "explanation": "`who` mostra quem está conectado no sistema."
+        "question": "Qual comando é utilizado para atualizar os pacotes no Debian/Ubuntu?",
+        "options": ["apt update", "yum update", "update", "pkg update"],
+        "answer": "apt update",
+        "explanation": "`apt update` atualiza a lista de pacotes disponíveis no Debian/Ubuntu."
     },
     {
-        "question": "Qual comando é utilizado para renomear arquivos no Linux?",
-        "options": [
-            "mv",
-            "rename",
-            "edit",
-            "ren"
-        ],
-        "answer": "mv",
-        "explanation": "`mv` move arquivos e também pode ser usado para renomeá-los."
+        "question": "O que representa o diretório `/etc` no Linux?",
+        "options": ["Arquivos de usuário", "Arquivos temporários", "Arquivos de configuração", "Bibliotecas do sistema"],
+        "answer": "Arquivos de configuração",
+        "explanation": "O diretório `/etc` contém arquivos de configuração do sistema."
     },
     {
-        "question": "Qual comando remove arquivos no Linux?",
-        "options": [
-            "del",
-            "erase",
-            "rm",
-            "remove"
-        ],
-        "answer": "rm",
-        "explanation": "`rm` é usado para excluir arquivos e diretórios no Linux."
+        "question": "Qual comando cria um novo diretório no Linux?",
+        "options": ["mkdir", "mkfolder", "createdir", "newdir"],
+        "answer": "mkdir",
+        "explanation": "`mkdir` é usado para criar novos diretórios."
     },
     {
-        "question": "Qual comando remove arquivos no Linux?",
-        "options": [
-            "del",
-            "erase",
-            "rm",
-            "remove"
-        ],
-        "answer": "rm",
-        "explanation": "`rm` é usado para excluir arquivos e diretórios no Linux."
+        "question": "Qual comando termina um processo pelo seu PID?",
+        "options": ["kill", "stop", "terminate", "end"],
+        "answer": "kill",
+        "explanation": "`kill` envia sinais para processos, como o sinal de término (SIGTERM)."
     },
     {
-        "question": "Qual comando permite a troca de senha de um usuário?",
-        "options": [
-            "passwd",
-            "changepw",
-            "setpw",
-            "userpass"
-        ],
-        "answer": "passwd",
-        "explanation": "`passwd` altera a senha de um usuário."
+        "question": "Qual comando é utilizado para alterar o dono de um arquivo no Linux?",
+        "options": ["chmod", "chown", "usermod", "own"],
+        "answer": "chown",
+        "explanation": "`chown` é usado para alterar o dono e/ou grupo de arquivos e diretórios."
     },
     {
-        "question": "Qual comando remove arquivos no Linux?",
-        "options": [
-            "del",
-            "erase",
-            "rm",
-            "remove"
-        ],
-        "answer": "rm",
-        "explanation": "`rm` é usado para excluir arquivos e diretórios no Linux."
+        "question": "O que o comando `echo` faz no terminal?",
+        "options": ["Cria arquivos", "Imprime texto", "Apaga arquivos", "Lista arquivos"],
+        "answer": "Imprime texto",
+        "explanation": "`echo` imprime mensagens no terminal ou o valor de variáveis."
     },
     {
-        "question": "Qual é o nome do superusuário no Linux?",
-        "options": [
-            "admin",
-            "superuser",
-            "root",
-            "master"
-        ],
-        "answer": "root",
-        "explanation": "`root` é o usuário administrativo com permissões totais no sistema Linux."
+        "question": "Qual comando permite agendar tarefas no Linux?",
+        "options": ["at", "cron", "schedule", "timejob"],
+        "answer": "cron",
+        "explanation": "`cron` é utilizado para agendar tarefas recorrentes no sistema Linux."
     },
     {
-        "question": "Qual comando é utilizado para listar usuários conectados no sistema?",
-        "options": [
-            "users",
-            "who",
-            "log",
-            "session"
-        ],
-        "answer": "who",
-        "explanation": "`who` mostra quem está conectado no sistema."
+        "question": "Qual diretório contém os dispositivos do sistema como discos e terminais?",
+        "options": ["/dev", "/proc", "/etc", "/var"],
+        "answer": "/dev",
+        "explanation": "`/dev` contém arquivos especiais que representam dispositivos do sistema."
     },
     {
-        "question": "Qual comando é utilizado para renomear arquivos no Linux?",
-        "options": [
-            "mv",
-            "rename",
-            "edit",
-            "ren"
-        ],
-        "answer": "mv",
-        "explanation": "`mv` move arquivos e também pode ser usado para renomeá-los."
+        "question": "Qual extensão de arquivo é normalmente usada para scripts de shell?",
+        "options": [".sh", ".bash", ".run", ".cmd"],
+        "answer": ".sh",
+        "explanation": "Scripts de shell geralmente usam a extensão `.sh`."
     },
     {
-        "question": "Qual comando é utilizado para renomear arquivos no Linux?",
-        "options": [
-            "mv",
-            "rename",
-            "edit",
-            "ren"
-        ],
-        "answer": "mv",
-        "explanation": "`mv` move arquivos e também pode ser usado para renomeá-los."
+        "question": "Qual comando é utilizado para verificar o caminho completo de um comando?",
+        "options": ["where", "path", "which", "locate"],
+        "answer": "which",
+        "explanation": "`which` mostra o caminho do executável que será executado para um comando."
     },
     {
-        "question": "O que faz o comando `man` no Linux?",
-        "options": [
-            "Executa comandos",
-            "Abre o manual de ajuda",
-            "Edita arquivos",
-            "Lista diretórios"
-        ],
-        "answer": "Abre o manual de ajuda",
-        "explanation": "`man` é usado para visualizar as páginas de manual de comandos no Linux."
+        "question": "Qual comando é usado para mudar permissões de arquivos?",
+        "options": ["chmod", "chperm", "perms", "chattr"],
+        "answer": "chmod",
+        "explanation": "`chmod` altera as permissões de leitura, escrita e execução de arquivos e diretórios."
     },
     {
-        "question": "Qual comando é utilizado para renomear arquivos no Linux?",
-        "options": [
-            "mv",
-            "rename",
-            "edit",
-            "ren"
-        ],
-        "answer": "mv",
-        "explanation": "`mv` move arquivos e também pode ser usado para renomeá-los."
+        "question": "Qual comando mostra a quantidade de espaço usada por um diretório?",
+        "options": ["du", "df", "ls", "size"],
+        "answer": "du",
+        "explanation": "`du` exibe o uso de espaço de diretórios e arquivos."
     },
     {
-        "question": "Qual comando é utilizado para renomear arquivos no Linux?",
-        "options": [
-            "mv",
-            "rename",
-            "edit",
-            "ren"
-        ],
-        "answer": "mv",
-        "explanation": "`mv` move arquivos e também pode ser usado para renomeá-los."
+        "question": "Qual comando mostra os processos em execução no sistema?",
+        "options": ["top", "list", "ps", "jobs"],
+        "answer": "ps",
+        "explanation": "`ps` exibe os processos ativos no momento em que o comando é executado."
     },
     {
-        "question": "Qual comando é utilizado para renomear arquivos no Linux?",
-        "options": [
-            "mv",
-            "rename",
-            "edit",
-            "ren"
-        ],
-        "answer": "mv",
-        "explanation": "`mv` move arquivos e também pode ser usado para renomeá-los."
+        "question": "Qual comando exibe as variáveis de ambiente atuais?",
+        "options": ["set", "env", "printenv", "export"],
+        "answer": "env",
+        "explanation": "`env` mostra o ambiente atual e as variáveis disponíveis no shell."
     },
     {
-        "question": "Qual é o nome do superusuário no Linux?",
-        "options": [
-            "admin",
-            "superuser",
-            "root",
-            "master"
-        ],
-        "answer": "root",
-        "explanation": "`root` é o usuário administrativo com permissões totais no sistema Linux."
+        "question": "Qual é a função do arquivo `/etc/passwd`?",
+        "options": ["Armazenar senhas dos usuários", "Configurar o bash", "Definir permissões", "Armazenar informações dos usuários"],
+        "answer": "Armazenar informações dos usuários",
+        "explanation": "`/etc/passwd` contém informações básicas dos usuários, como login, UID, GID e diretório home."
     },
     {
-        "question": "Qual é o significado do caractere `~` no terminal?",
-        "options": [
-            "Diretório raiz",
-            "Diretório atual",
-            "Diretório do usuário",
-            "Diretório temporário"
-        ],
-        "answer": "Diretório do usuário",
-        "explanation": "`~` representa o diretório home do usuário logado."
+        "question": "Qual comando é usado para visualizar o conteúdo compactado de um arquivo `.gz`?",
+        "options": ["gzip -d", "tar -xvzf", "zcat", "extract"],
+        "answer": "zcat",
+        "explanation": "`zcat` permite visualizar o conteúdo de arquivos compactados com gzip sem descompactá-los."
     },
     {
-        "question": "Qual comando é utilizado para ver as últimas linhas de um arquivo?",
-        "options": [
-            "tail",
-            "last",
-            "bottom",
-            "less"
-        ],
-        "answer": "tail",
-        "explanation": "`tail` exibe as últimas linhas de um arquivo, útil para logs."
+        "question": "Qual comando é usado para comprimir arquivos com gzip?",
+        "options": ["zip", "compress", "gzip", "gz"],
+        "answer": "gzip",
+        "explanation": "`gzip` é usado para comprimir arquivos em formato `.gz`."
     },
     {
-        "question": "Qual comando permite a troca de senha de um usuário?",
-        "options": [
-            "passwd",
-            "changepw",
-            "setpw",
-            "userpass"
-        ],
-        "answer": "passwd",
-        "explanation": "`passwd` altera a senha de um usuário."
+        "question": "Qual comando é usado para desligar o sistema?",
+        "options": ["halt", "poweroff", "shutdown", "off"],
+        "answer": "shutdown",
+        "explanation": "`shutdown` é utilizado para desligar ou reiniciar o sistema de forma segura."
     },
     {
-        "question": "Qual comando exibe a data e hora atuais no Linux?",
-        "options": [
-            "date",
-            "clock",
-            "time",
-            "now"
-        ],
-        "answer": "date",
-        "explanation": "O comando `date` mostra a data e a hora atual do sistema."
+        "question": "Qual comando verifica conectividade com um host remoto?",
+        "options": ["ping", "connect", "netcheck", "host"],
+        "answer": "ping",
+        "explanation": "`ping` envia pacotes ICMP para testar a conectividade com outro host."
     },
     {
-        "question": "Qual é o significado do caractere `~` no terminal?",
-        "options": [
-            "Diretório raiz",
-            "Diretório atual",
-            "Diretório do usuário",
-            "Diretório temporário"
-        ],
-        "answer": "Diretório do usuário",
-        "explanation": "`~` representa o diretório home do usuário logado."
+        "question": "O que significa o caminho relativo `../`?",
+        "options": ["Diretório raiz", "Diretório atual", "Diretório pai", "Diretório temporário"],
+        "answer": "Diretório pai",
+        "explanation": "`../` representa o diretório pai (nível acima na hierarquia)."
     },
     {
-        "question": "Qual comando permite a troca de senha de um usuário?",
-        "options": [
-            "passwd",
-            "changepw",
-            "setpw",
-            "userpass"
-        ],
-        "answer": "passwd",
-        "explanation": "`passwd` altera a senha de um usuário."
-    },
-    {
-        "question": "Qual comando é utilizado para renomear arquivos no Linux?",
-        "options": [
-            "mv",
-            "rename",
-            "edit",
-            "ren"
-        ],
-        "answer": "mv",
-        "explanation": "`mv` move arquivos e também pode ser usado para renomeá-los."
-    },
-    {
-        "question": "Qual comando é utilizado para renomear arquivos no Linux?",
-        "options": [
-            "mv",
-            "rename",
-            "edit",
-            "ren"
-        ],
-        "answer": "mv",
-        "explanation": "`mv` move arquivos e também pode ser usado para renomeá-los."
-    },
-    {
-        "question": "Qual comando é usado para procurar padrões em arquivos?",
-        "options": [
-            "find",
-            "grep",
-            "locate",
-            "search"
-        ],
-        "answer": "grep",
-        "explanation": "`grep` busca padrões em arquivos ou na saída de outros comandos."
-    },
-    {
-        "question": "Qual comando é utilizado para ver as últimas linhas de um arquivo?",
-        "options": [
-            "tail",
-            "last",
-            "bottom",
-            "less"
-        ],
-        "answer": "tail",
-        "explanation": "`tail` exibe as últimas linhas de um arquivo, útil para logs."
-    },
-    {
-        "question": "Qual comando exibe a data e hora atuais no Linux?",
-        "options": [
-            "date",
-            "clock",
-            "time",
-            "now"
-        ],
-        "answer": "date",
-        "explanation": "O comando `date` mostra a data e a hora atual do sistema."
-    },
-    {
-        "question": "Qual comando permite a troca de senha de um usuário?",
-        "options": [
-            "passwd",
-            "changepw",
-            "setpw",
-            "userpass"
-        ],
-        "answer": "passwd",
-        "explanation": "`passwd` altera a senha de um usuário."
-    },
-    {
-        "question": "Qual comando é usado para procurar padrões em arquivos?",
-        "options": [
-            "find",
-            "grep",
-            "locate",
-            "search"
-        ],
-        "answer": "grep",
-        "explanation": "`grep` busca padrões em arquivos ou na saída de outros comandos."
-    },
-    {
-        "question": "Qual comando remove arquivos no Linux?",
-        "options": [
-            "del",
-            "erase",
-            "rm",
-            "remove"
-        ],
-        "answer": "rm",
-        "explanation": "`rm` é usado para excluir arquivos e diretórios no Linux."
-    },
-    {
-        "question": "Qual comando é utilizado para ver as últimas linhas de um arquivo?",
-        "options": [
-            "tail",
-            "last",
-            "bottom",
-            "less"
-        ],
-        "answer": "tail",
-        "explanation": "`tail` exibe as últimas linhas de um arquivo, útil para logs."
-    },
-    {
-        "question": "Qual comando é utilizado para ver as últimas linhas de um arquivo?",
-        "options": [
-            "tail",
-            "last",
-            "bottom",
-            "less"
-        ],
-        "answer": "tail",
-        "explanation": "`tail` exibe as últimas linhas de um arquivo, útil para logs."
-    },
-    {
-        "question": "Qual comando remove arquivos no Linux?",
-        "options": [
-            "del",
-            "erase",
-            "rm",
-            "remove"
-        ],
-        "answer": "rm",
-        "explanation": "`rm` é usado para excluir arquivos e diretórios no Linux."
-    },
-    {
-        "question": "Qual é o significado do caractere `~` no terminal?",
-        "options": [
-            "Diretório raiz",
-            "Diretório atual",
-            "Diretório do usuário",
-            "Diretório temporário"
-        ],
-        "answer": "Diretório do usuário",
-        "explanation": "`~` representa o diretório home do usuário logado."
-    },
-    {
-        "question": "Qual comando é utilizado para renomear arquivos no Linux?",
-        "options": [
-            "mv",
-            "rename",
-            "edit",
-            "ren"
-        ],
-        "answer": "mv",
-        "explanation": "`mv` move arquivos e também pode ser usado para renomeá-los."
-    },
-    {
-        "question": "Qual comando remove arquivos no Linux?",
-        "options": [
-            "del",
-            "erase",
-            "rm",
-            "remove"
-        ],
-        "answer": "rm",
-        "explanation": "`rm` é usado para excluir arquivos e diretórios no Linux."
-    },
-    {
-        "question": "Qual é o nome do superusuário no Linux?",
-        "options": [
-            "admin",
-            "superuser",
-            "root",
-            "master"
-        ],
-        "answer": "root",
-        "explanation": "`root` é o usuário administrativo com permissões totais no sistema Linux."
-    },
-    {
-        "question": "Qual comando remove arquivos no Linux?",
-        "options": [
-            "del",
-            "erase",
-            "rm",
-            "remove"
-        ],
-        "answer": "rm",
-        "explanation": "`rm` é usado para excluir arquivos e diretórios no Linux."
-    },
-    {
-        "question": "Qual comando permite a troca de senha de um usuário?",
-        "options": [
-            "passwd",
-            "changepw",
-            "setpw",
-            "userpass"
-        ],
-        "answer": "passwd",
-        "explanation": "`passwd` altera a senha de um usuário."
-    },
-    {
-        "question": "Qual é o significado do caractere `~` no terminal?",
-        "options": [
-            "Diretório raiz",
-            "Diretório atual",
-            "Diretório do usuário",
-            "Diretório temporário"
-        ],
-        "answer": "Diretório do usuário",
-        "explanation": "`~` representa o diretório home do usuário logado."
-    },
-    {
-        "question": "Qual é o nome do superusuário no Linux?",
-        "options": [
-            "admin",
-            "superuser",
-            "root",
-            "master"
-        ],
-        "answer": "root",
-        "explanation": "`root` é o usuário administrativo com permissões totais no sistema Linux."
-    },
-    {
-        "question": "Qual é o nome do superusuário no Linux?",
-        "options": [
-            "admin",
-            "superuser",
-            "root",
-            "master"
-        ],
-        "answer": "root",
-        "explanation": "`root` é o usuário administrativo com permissões totais no sistema Linux."
+        "question": "O que faz o comando `touch` no Linux?",
+        "options": ["Edita arquivos", "Move arquivos", "Cria arquivos vazios", "Apaga arquivos"],
+        "answer": "Cria arquivos vazios",
+        "explanation": "`touch` é usado para criar arquivos vazios ou atualizar o timestamp de arquivos existentes."
     }
 ]
 
@@ -1364,7 +994,7 @@ st.markdown(
               </a>         
           </div>  
           <div class="linha"> <br> </div>
-          <div class="linha">⚙️ <b>Versão:</b> 3.0.1</div> 
+          <div class="linha">⚙️ <b>Versão:</b> 1.0.1</div> 
           <div class="linha">🗓️ <b>Build:</b> {data_atual}</div>        
       </div>
     </div>
