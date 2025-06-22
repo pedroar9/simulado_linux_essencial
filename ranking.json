@@ -37,10 +37,21 @@
     "email": "",
     "city": "",
     "country": "",
-    "score": 13,
-    "questions_answered": 15,
-    "time_seconds": 105,
-    "date": "21-06-2025 22:19",
+    "score": 26,
+    "questions_answered": 26,
+    "time_seconds": 750,
+    "date": "22-06-2025 10:19",
+    "total_questions": 30
+  },
+  {
+    "name": "Fantasma",
+    "email": "",
+    "city": "",
+    "country": "",
+    "score": 23,
+    "questions_answered": 26,
+    "time_seconds": 805,
+    "date": "22-06-2025 09:00",
     "total_questions": 30
   }
 ]

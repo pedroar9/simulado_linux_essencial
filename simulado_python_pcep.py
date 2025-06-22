@@ -1879,7 +1879,7 @@ questions_data = [
 
 # --- Configuracoes da aplicacao ---
 st.set_page_config(
-    page_title="Simulado Interativo PCEP",
+    page_title="Simulado da Certificação em Python - PCEP",
     page_icon="🐍",
     layout="wide",
     initial_sidebar_state="auto"
@@ -2305,7 +2305,7 @@ def display_question(question_data, current_idx, total_questions):
     # Título geral do simulado
     st.markdown("""            
 
-    ### 🐍 Simulado Interativo da certificação em Python - PCEP
+    ### 🐍 Simulado da certificação em Python - PCEP
 
     """)
 
@@ -2435,7 +2435,7 @@ def show_results_page():
         st.header("👎🏾 Simulado Concluído! 👎🏾")
 
     if st.session_state.get("time_up", False):
-        st.warning("⏰ Seu tempo para o quiz esgotou!")
+        st.warning("⏰ Seu tempo para o simulado esgotou!")
 
     # Garante que o ranking seja atualizado apenas uma vez por quiz
     if not st.session_state.get("ranking_updated", False):
@@ -2448,13 +2448,13 @@ def show_results_page():
     st.markdown(f"<p class='score-display'>Você acertou {score} de {total} questões. ({pct:.1f}%)</p>", unsafe_allow_html=True)
     
     if pct >= PASSING_PERCENTAGE:
-        st.success("Parabéns! Você foi aprovado na certificação PCEP! ✅")
+        st.success("✅ Parabéns! Você foi aprovado no simulado da certificação PCEP!")
         st.balloons()  # balões só para APROVADOS
         st.markdown("<div class='centered-gif-mobile'>", unsafe_allow_html=True)
         st.image("https://imagens.net.br/wp-content/uploads/2024/06/os-melhores-gifs-de-parabens-para-qualquer-ocasiao-1.gif", width=300)
         st.markdown("</div>", unsafe_allow_html=True)
     else:
-        st.error("Você não atingiu a pontuação mínima para aprovação. Tente novamente! ❌")
+        st.error("❌ Você não atingiu a pontuação mínima para aprovação. Tente novamente!")
         st.snow() # emojis de gelor para REPROVADOS
         st.markdown("<div class='centered-gif-mobile'>", unsafe_allow_html=True)
         st.image("https://media1.tenor.com/m/gw207uCZe_MAAAAC/estuda-porra-evelyn-castro.gif", width=300)
@@ -2475,9 +2475,9 @@ def show_results_page():
                     st.markdown(f"**Sua resposta:** {user_answer_for_this_q}")
 
                     if user_answer_for_this_q == q_data_original["answer"]:
-                        st.markdown(f"**Resultado:** Correto ✅")
+                        st.markdown(f"**Resultado:** ✅ Correto")
                     else:
-                        st.markdown(f"**Resultado:** Incorreto ❌")
+                        st.markdown(f"**Resultado:** ❌ Incorreto")
                         st.markdown(f"**Resposta correta:** {q_data_original['answer']}")
 
                     st.markdown(
@@ -2504,7 +2504,7 @@ if not st.session_state.quiz_started:
     st.markdown("""
         <div style="display: flex; align-items: center; gap: 12px;">
             <img src="https://static.cdnlogo.com/logos/p/83/python.svg" alt="Python Logo" width="65"/>
-            <h1 style="margin: 0;">Simulado Interativo da certificação em Python - PCEP</h1>
+            <h1 style="margin: 0;">Simulado da certificação em Python - PCEP</h1>
             <img src="https://pythoninstitute.org/assets/61f11fac8e6f4153315957.png" alt="PCEP Logo" width="60"/>
         </div>
     """, unsafe_allow_html=True)
@@ -2669,7 +2669,7 @@ st.markdown(
               </a>         
           </div>  
           <div class="linha"> <br> </div>
-          <div class="linha">⚙️ <b>Versão:</b> 3.0.0</div> 
+          <div class="linha">⚙️ <b>Versão:</b> 3.0.1</div> 
           <div class="linha">🗓️ <b>Build:</b> {data_atual}</div>        
       </div>
     </div>
