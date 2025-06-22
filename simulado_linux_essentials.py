@@ -727,13 +727,13 @@ custom_css = f"""
 <style>
     /* ----------------------------- TIPOGRAFIA ----------------------------- */
     section.main h1, .block-container h1 {{
-        font-size: 2.2em;
+        font-size: 2.1em;
     }}
     section.main h2, .block-container h2 {{
-        font-size: 1.6em;
+        font-size: 1.5em;
     }}
     section.main h3, .block-container h3 {{
-        font-size: 1.3em;
+        font-size: 1.2em;
     }}
 
     /* ----------------------------- BOTÕES ----------------------------- */
@@ -1341,7 +1341,7 @@ if not st.session_state.quiz_started:
     """, unsafe_allow_html=True)
 
     st.markdown("""
-### 📢 Sobre a Certificação Linux Essentials 🐧:
+### 📢 Sobre a Certificação Linux Essentials🐧
                 
 Este simulado é baseado na prova oficial **Linux Essentials – LPI 010-160**, oferecida pela [LPI (Linux Professional Institute)](https://www.lpi.org/pt-br/our-certifications/linux-essentials-overview/).
 
