@@ -1,13 +1,13 @@
 <img src="https://img.shields.io/badge/Python-4584b6?style=for-the-badge&logo=python&logoColor=FFDE57"/> <img src="https://img.shields.io/badge/Streamlit-%23FE4B4B.svg?style=for-the-badge&logo=streamlit&logoColor=white"/> <img src="https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white"/> <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white"/> <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white"/>
 
 
-# 🐍 Simulado Interativo da certificação em Python - PCEP
+# 🐧 Simulado da certificação Linux Essentials
 
-Este projeto é um **simulado interativo** para auxiliar nos estudos para a certificação **PCEP™ – Certified Entry-Level Python Programmer**.
+Este projeto é um **simulado** para auxiliar nos estudos para a certificação **Linux Essentials – LPI 010-160**, oferecida pela [LPI (Linux Professional Institute)](https://www.lpi.org/pt-br/our-certifications/linux-essentials-overview/).
 
 A aplicação foi desenvolvida utilizando:
 
-- 🐍 **Python** como linguagem principal
+- 🐧 **Python** como linguagem principal
 - 📄 **Markdown** para estrutura textual
 - 🎨 **HTML5 + CSS3** para estilização embutida
 - 💻 **Streamlit** como framework web de interface interativa
@@ -29,7 +29,7 @@ Para configurar o ambiente de desenvolvimento, siga os passos abaixo:
 
 1.  **Clone o repositório (se aplicável):**
     ```bash
-    git clone https://github.com/pedroar9/simulado_python_pcep.git
+    git clone https://github.com/pedroar9/simulado_linux_essencial.git
     cd simulado_python_pcep
     ```
 
@@ -59,7 +59,7 @@ Para executar o simulado, siga os passos abaixo:
 
 1. **Execute o comando abaixo no terminal**  
     ```bash 
-    streamlit run simulado_python_pcep.py
+    streamlit run simulado_linux_essencial.py
     ```
 
 ## © Licença
